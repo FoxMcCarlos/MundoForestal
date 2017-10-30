@@ -53,6 +53,19 @@ class ContentsTable extends Table
             ->notEmpty('IdCategory');
 
         $validator
+            ->integer('IdBotanicalFamily')
+            ->allowEmpty('IdBotanicalFamily');
+
+        $validator
+            ->scalar('Name')
+            ->requirePresence('Name', 'create')
+            ->notEmpty('Name');
+
+        $validator
+            ->scalar('ScientificName')
+            ->allowEmpty('ScientificName');
+
+        $validator
             ->scalar('Description')
             ->requirePresence('Description', 'create')
             ->notEmpty('Description');

@@ -17,8 +17,12 @@
     <h3><?= h($content->IdContent) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($content->Description) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($content->Name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('ScientificName') ?></th>
+            <td><?= h($content->ScientificName) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('IdContent') ?></th>
@@ -28,5 +32,13 @@
             <th scope="row"><?= __('IdCategory') ?></th>
             <td><?= $this->Number->format($content->IdCategory) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('IdBotanicalFamily') ?></th>
+            <td><?= $this->Number->format($content->IdBotanicalFamily) ?></td>
+        </tr>
     </table>
+    <div class="row">
+        <h4><?= __('Description') ?></h4>
+        <?= $this->Text->autoParagraph(h($content->Description)); ?>
+    </div>
 </div>

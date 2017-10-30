@@ -15,6 +15,9 @@
         <legend><?= __('Add Content') ?></legend>
         <?php
             echo $this->Form->control('IdCategory');
+            echo $this->Form->control('IdBotanicalFamily');
+            echo $this->Form->control('Name');
+            echo $this->Form->control('ScientificName');
             echo $this->Form->control('Description');
         ?>
     </fieldset>

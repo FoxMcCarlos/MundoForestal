@@ -17,7 +17,9 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('IdContent') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('IdCategory') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('Description') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('IdBotanicalFamily') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ScientificName') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -26,7 +28,9 @@
             <tr>
                 <td><?= $this->Number->format($content->IdContent) ?></td>
                 <td><?= $this->Number->format($content->IdCategory) ?></td>
-                <td><?= h($content->Description) ?></td>
+                <td><?= $this->Number->format($content->IdBotanicalFamily) ?></td>
+                <td><?= h($content->Name) ?></td>
+                <td><?= h($content->ScientificName) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $content->IdContent]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $content->IdContent]) ?>

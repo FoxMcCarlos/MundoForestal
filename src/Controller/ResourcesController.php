@@ -54,10 +54,8 @@ class ResourcesController extends AppController
         if ($this->request->is('post')) {
           $target_dir = "webroot/resources/";
           $target_file = $target_dir . basename($_FILES["files"]["name"]);
-
           move_uploaded_file($_FILES["files"]["tmp_name"], $target_file);
             $resource = $this->Resources->patchEntity($resource, $this->request->getData());
-
             if ($this->Resources->save($resource)) {
                 $this->Flash->success(__('The resource has been saved.'));
 

@@ -20,8 +20,6 @@
             echo $this->Form->control('Resource');
             echo $this->Form->input('file', ['type' => 'file','class' =>'form-control', 'id' => 'files', 'name' => 'files']);
             echo $this->Html->image('null', array('alt' => 'Aquí se despliega la imagen', 'id' => 'image', 'style = "width:350px; height:250px;"'));
-
-
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
