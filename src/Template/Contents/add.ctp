@@ -14,8 +14,8 @@
     <fieldset>
         <legend><?= __('Add Content') ?></legend>
         <?php
-            echo $this->Form->input('IdCategory', array('type'=>'select', 'options'=> $categories, 'label' => 'Category'));
-            echo $this->Form->input('IdBotanicalFamily', array('type'=>'select','options'=> $families,'label' => 'Botanical Family'));
+            echo $this->Form->input('IdCategory', array('type'=>'select', 'options'=> $categories , 'label' => 'Category'));
+            echo $this->Form->input('IdBotanicalFamily', array('type'=>'select','options'=> $families,'label' => 'Botanical Family', 'empty' => 'No tiene'));
             echo $this->Form->control('Name');
             echo $this->Form->control('ScientificName', array('label' => 'Scientific Name'));
             echo $this->Form->control('Description');

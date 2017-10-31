@@ -66,9 +66,10 @@ class ContentsController extends AppController
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
         $this->set(compact('content'));
-        $this->set('_serialize', ['content']);
+        $this->set('_serialize', ['content']);        
         $this->set('categories',$this->Categories->find('list'));
         $this->set('families',$this->Botanicalfamilies->find('list'));
+
 
     }
 
