@@ -20,10 +20,10 @@
     <fieldset>
         <legend><?= __('Edit Content') ?></legend>
         <?php
-            echo $this->Form->control('IdCategory');
-            echo $this->Form->control('IdBotanicalFamily');
+            echo $this->Form->input('IdCategory', array('type'=>'select', 'options'=> $categories, 'label' => 'Category'));
+            echo $this->Form->input('IdBotanicalFamily', array('type'=>'select','options'=> $families,'label' => 'Botanical Family'));
             echo $this->Form->control('Name');
-            echo $this->Form->control('ScientificName');
+            echo $this->Form->control('ScientificName', array('label' => 'Scientific Name'));
             echo $this->Form->control('Description');
         ?>
     </fieldset>

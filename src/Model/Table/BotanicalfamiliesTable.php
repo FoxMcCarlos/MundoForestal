@@ -31,7 +31,7 @@ class BotanicalfamiliesTable extends Table
         parent::initialize($config);
 
         $this->setTable('botanicalfamilies');
-        $this->setDisplayField('Id');
+        $this->setDisplayField('Description');
         $this->setPrimaryKey('Id');
     }
 

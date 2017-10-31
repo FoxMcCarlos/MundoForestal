@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+
+
 /**
  * Contents Controller
  *
@@ -48,8 +50,11 @@ class ContentsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
+
     public function add()
     {
+      $this->loadModel('Categories');
+      $this->loadModel('Botanicalfamilies');
         $content = $this->Contents->newEntity();
         if ($this->request->is('post')) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
@@ -62,6 +67,9 @@ class ContentsController extends AppController
         }
         $this->set(compact('content'));
         $this->set('_serialize', ['content']);
+        $this->set('categories',$this->Categories->find('list'));
+        $this->set('families',$this->Botanicalfamilies->find('list'));
+
     }
 
     /**
@@ -73,6 +81,9 @@ class ContentsController extends AppController
      */
     public function edit($id = null)
     {
+          $this->loadModel('Categories');
+          $this->loadModel('Botanicalfamilies');
+
         $content = $this->Contents->get($id, [
             'contain' => []
         ]);
@@ -87,6 +98,8 @@ class ContentsController extends AppController
         }
         $this->set(compact('content'));
         $this->set('_serialize', ['content']);
+        $this->set('categories',$this->Categories->find('list'));
+        $this->set('families',$this->Botanicalfamilies->find('list'));
     }
 
     /**

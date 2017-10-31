@@ -31,7 +31,7 @@ class CategoriesTable extends Table
         parent::initialize($config);
 
         $this->setTable('categories');
-        $this->setDisplayField('IdCategory');
+        $this->setDisplayField('Description');
         $this->setPrimaryKey('IdCategory');
     }
 
