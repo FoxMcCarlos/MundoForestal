@@ -66,4 +66,20 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+
+    public function especies($id = null)
+    {
+
+        $this->loadModel('Contents');
+        $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 1))),  ['limit' => 10]);
+
+        $this->set(compact('contents'));
+        $this->set('_serialize', ['contents']);
+
+
+
+    }
+
+
 }

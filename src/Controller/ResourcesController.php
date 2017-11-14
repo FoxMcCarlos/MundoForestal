@@ -50,6 +50,7 @@ class ResourcesController extends AppController
      */
     public function add()
     {
+        $this->loadModel('Contents');
         $resource = $this->Resources->newEntity();
         if ($this->request->is('post')) {
           $target_dir = "webroot/resources/";
@@ -65,6 +66,8 @@ class ResourcesController extends AppController
         }
         $this->set(compact('resource'));
         $this->set('_serialize', ['resource']);
+        $this->set('contents',$this->Contents->find('list'));
+
     }
 
     /**
@@ -76,6 +79,7 @@ class ResourcesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->loadModel('Contents');
         $resource = $this->Resources->get($id, [
             'contain' => []
         ]);
@@ -90,6 +94,7 @@ class ResourcesController extends AppController
         }
         $this->set(compact('resource'));
         $this->set('_serialize', ['resource']);
+        $this->set('contents',$this->Contents->find('list'));
     }
 
     /**

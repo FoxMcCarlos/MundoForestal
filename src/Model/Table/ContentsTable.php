@@ -31,7 +31,7 @@ class ContentsTable extends Table
         parent::initialize($config);
 
         $this->setTable('contents');
-        $this->setDisplayField('IdContent');
+        $this->setDisplayField('Name');
         $this->setPrimaryKey('IdContent');
     }
 
