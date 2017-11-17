@@ -6,7 +6,7 @@ document.getElementById("files").onchange = function () {
         document.getElementById("image").src = e.target.result;
         var resourceN = document.getElementById("files").value;
         resourceN = resourceN.replace("C:\\fakepath\\", "");
-        document.getElementById("resource").value = "/webroot/img/"+ resourceN;
+        document.getElementById("resource").value = "img/"+ resourceN;
     };
 
 

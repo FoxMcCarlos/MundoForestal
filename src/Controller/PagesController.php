@@ -72,7 +72,7 @@ class PagesController extends AppController
     {
 
         $this->loadModel('Contents');
-        $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 1))),  ['limit' => 10]);
+        $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 1))),  ['limit' => 12]);
 
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
