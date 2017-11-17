@@ -24,8 +24,10 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * This controller will render views from Template/Pages/
  *
+  *@property \App\Model\Table\ContentsTable $Contents
  * @link https://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
+
 class PagesController extends AppController
 {
 
@@ -79,9 +81,17 @@ class PagesController extends AppController
 
     }
 
-    public function detailEspecies($id = null)
+    /**
+     * View method
+     *
+     * @param string|null $id Content id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function detail($id = null)
     {
-        $content = $this->Content->get($id, [
+        $this->loadModel('Contents');
+        $content = $this->Contents->get($id, [
             'contain' => []
         ]);
 
