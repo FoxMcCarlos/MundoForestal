@@ -93,45 +93,35 @@ $cakeDescription = 'Mundo Forestal';
       </div>
     </div>
   </header>
-      <div class="container">
-        <div class="row">
-    <div><br>
 
-      <ul style="list-style: none;">
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
 
-        <?php
-          foreach ($contents as $content):?>
+      <?php
+        foreach ($contents as $content):?>
 
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <?= $this->Html->link(__($content->Name), ['action' => 'especies', $content->IdContent]) ?>
+            </h4>
+            <h5>Fotos de Bosques</h5>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
 
+      <?php  endforeach;?>
 
-            <li>
-              <div class="container" style="margin-left:100px">
+    </div>
+  </div>
 
-                <div class="row">
-                  <div class="col-lg-3"></div>
-                  <div class="col-lg-6">
-              <div class="card text-center">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <?= $this->Html->link(__($content->Name), ['action' => 'especies', $content->IdContent]) ?>
-                  </h4>
-                  <h5>Texto que haga falta</h5>
-                </div>
-                <div class="card-footer">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3"></div>
-            </div>
+  <!-- End content-->
 
-            </div>
-              </li>
-              <br>
-
-          <?php  endforeach;?>
-
-        </ul>
         <div class="paginator" style="margin-left:430px;">
             <ul class="pagination">
                 <?= $this->Paginator->first('<< ' . __('first')) ?>
