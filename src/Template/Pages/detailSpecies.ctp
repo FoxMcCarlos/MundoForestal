@@ -106,7 +106,7 @@ $cakeDescription = 'Mundo Forestal';
           <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <?= $this->Html->link(__($content->Name), ['action' => 'detailEspecies', $content->IdContent]) ?>
+              <?= $content->Description ?>
             </h4>
             <h5>Fotos de Bosques</h5>
           </div>

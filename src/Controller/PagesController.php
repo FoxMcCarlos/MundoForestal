@@ -77,8 +77,16 @@ class PagesController extends AppController
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
 
+    }
 
+    public function detailEspecies($id = null)
+    {
+        $content = $this->Content->get($id, [
+            'contain' => []
+        ]);
 
+        $this->set('content', $content);
+        $this->set('_serialize', ['content']);
     }
 
 
