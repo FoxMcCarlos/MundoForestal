@@ -97,11 +97,15 @@ $cakeDescription = 'Mundo Forestal';
   <!-- Main Content -->
   <div class="container">
     <div class="row">
+
       <div class="col-lg-12 col-md-12 mb-12">
+        <div><h4 style="color:green;  font-style: italic;">Nombre científico: <?= $content->ScientificName ?></h4></div>
         <div class"panel panel-info" align="justify">
-          <?= $content->Description ?>
+          <p><?= $content->Description ?></p>
         </div>
       </div>
+      
+
     </div>
   </div>
 
