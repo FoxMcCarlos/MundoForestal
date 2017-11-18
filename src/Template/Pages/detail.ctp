@@ -86,7 +86,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Especies</h1>
+            <h1><?= $content->Name ?></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -97,45 +97,14 @@ $cakeDescription = 'Mundo Forestal';
   <!-- Main Content -->
   <div class="container">
     <div class="row">
-
-      <?php
-        foreach ($contents as $content):?>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <?= $content->Description ?>
-            </h4>
-            <h5>Fotos de Bosques</h5>
-          </div>
-          <div class="card-footer">
-          </div>
+      <div class="col-lg-12 col-md-12 mb-12">
+        <div class"panel panel-info" align="justify">
+          <?= $content->Description ?>
         </div>
       </div>
-
-      <?php  endforeach;?>
-
     </div>
   </div>
 
-  <!-- End content-->
-
-        <div class="paginator" style="margin-left:430px;">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-        </div>
-      </div>
-
-        </div>
-        </div>
   <hr>
 
   <!-- Footer -->
