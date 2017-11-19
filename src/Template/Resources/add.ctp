@@ -17,7 +17,7 @@
 
 <?php
             echo $this->Form->input('IdContent', array('type'=>'select', 'options'=> $contents , 'label' => 'Content'));
-            echo $this->Form->control('Resource',, array('readonly' => 'true'));
+            echo $this->Form->control('Resource', array('readonly' => 'true'));
             echo $this->Form->input('file', ['type' => 'file','class' =>'form-control', 'id' => 'files', 'name' => 'files']);
             echo $this->Html->image('null', array('alt' => 'Aquí se despliega la imagen', 'id' => 'image', 'style = "width:350px; height:250px;"'));
         ?>
