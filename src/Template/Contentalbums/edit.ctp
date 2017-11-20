@@ -22,7 +22,7 @@
         <legend><?= __('Edit Contentalbum') ?></legend>
         <?php
         echo $this->Form->input('IdAlbum', array('type'=>'select', 'options'=> $albums , 'label' => 'Album'));
-        echo $this->Form->input('IdContent', array('type'=>'select','options'=> $contents,'label' => 'Album'));
+        echo $this->Form->input('IdContent', array('type'=>'select','options'=> $contents,'label' => 'Content'));
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
