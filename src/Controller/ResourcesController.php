@@ -12,6 +12,11 @@ use App\Controller\AppController;
  */
 class ResourcesController extends AppController
 {
+  public function initialize()
+  {
+    $this->loadComponent('Csrf');
+    $this->loadModel('Contents');
+  }
 
     /**
      * Index method
@@ -50,7 +55,7 @@ class ResourcesController extends AppController
      */
     public function add()
     {
-        $this->loadModel('Contents');
+
         $resource = $this->Resources->newEntity();
         if ($this->request->is('post')) {
           $target_dir = "webroot/resources/";
@@ -79,7 +84,7 @@ class ResourcesController extends AppController
      */
     public function edit($id = null)
     {
-        $this->loadModel('Contents');
+
         $resource = $this->Resources->get($id, [
             'contain' => []
         ]);

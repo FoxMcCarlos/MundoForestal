@@ -14,6 +14,12 @@ use App\Controller\AppController;
  */
 class ContentsController extends AppController
 {
+  public function initialize()
+  {
+    $this->loadComponent('Csrf');
+    $this->loadModel('Categories');
+    $this->loadModel('Botanicalfamilies');
+  }
 
     /**
      * Index method
@@ -40,7 +46,7 @@ class ContentsController extends AppController
         $content = $this->Contents->get($id, [
             'contain' => []
         ]);
-        
+
         $this->set('content', $content);
         $this->set('_serialize', ['content']);
     }
@@ -53,8 +59,7 @@ class ContentsController extends AppController
 
     public function add()
     {
-      $this->loadModel('Categories');
-      $this->loadModel('Botanicalfamilies');
+
         $content = $this->Contents->newEntity();
         if ($this->request->is('post')) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
@@ -80,8 +85,7 @@ class ContentsController extends AppController
      */
     public function edit($id = null)
     {
-          $this->loadModel('Categories');
-          $this->loadModel('Botanicalfamilies');
+        
 
         $content = $this->Contents->get($id, [
             'contain' => []

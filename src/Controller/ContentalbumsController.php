@@ -7,11 +7,20 @@ use App\Controller\AppController;
  * Contentalbums Controller
  *
  * @property \App\Model\Table\ContentalbumsTable $Contentalbums
+ * @property \App\Model\Table\ContentsTable $Contens
+ * @property \App\Model\Table\AlbumsTable $Albums
  *
  * @method \App\Model\Entity\Contentalbum[] paginate($object = null, array $settings = [])
  */
 class ContentalbumsController extends AppController
 {
+
+  public function initialize()
+  {
+    $this->loadComponent('Csrf');
+    $this->loadModel('Albums');
+    $this->loadModel('Contents');
+  }
 
     /**
      * Index method
@@ -50,8 +59,7 @@ class ContentalbumsController extends AppController
      */
     public function add()
     {
-        $this->loadModel('Albums');
-        $this->loadModel('Contents');
+
         $contentalbum = $this->Contentalbums->newEntity();
         if ($this->request->is('post')) {
             $contentalbum = $this->Contentalbums->patchEntity($contentalbum, $this->request->getData());
@@ -77,8 +85,7 @@ class ContentalbumsController extends AppController
      */
     public function edit($id = null)
     {
-        $this->loadModel('Albums');
-        $this->loadModel('Contents');
+
         $contentalbum = $this->Contentalbums->get($id, [
             'contain' => []
         ]);
