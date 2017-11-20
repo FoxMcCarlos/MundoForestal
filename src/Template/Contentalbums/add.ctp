@@ -15,8 +15,8 @@
     <fieldset>
         <legend><?= __('Add Contentalbum') ?></legend>
         <?php
-          echo $this->Form->input('IdCategory', array('type'=>'select', 'options'=> $albums , 'label' => 'Album'));
-          echo $this->Form->input('IdBotanicalFamily', array('type'=>'select','options'=> $contents,'label' => 'Album'));
+          echo $this->Form->input('IdAlbum', array('type'=>'select', 'options'=> $albums , 'label' => 'Album'));
+          echo $this->Form->input('IdContent', array('type'=>'select','options'=> $contents,'label' => 'Album'));
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
