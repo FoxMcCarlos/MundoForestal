@@ -33,6 +33,8 @@ class ContentsTable extends Table
         $this->setTable('contents');
         $this->setDisplayField('Name');
         $this->setPrimaryKey('IdContent');
+        $this->belongsTo('Categories')->setForeignKey('IdCategory');
+        $this->belongsTo('Botanicalfamilies')->setForeignKey('IdBotanicalFamily');
     }
 
     /**

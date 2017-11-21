@@ -14,7 +14,7 @@
     </ul>
 </nav>
 <div class="contents view large-9 medium-8 columns content">
-    <h3><?= h($content->IdContent) ?></h3>
+    <h3> Información del contenido </h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
@@ -25,16 +25,16 @@
             <td><?= h($content->ScientificName) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdContent') ?></th>
+            <th scope="row"><?= __('Id Content') ?></th>
             <td><?= $this->Number->format($content->IdContent) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdCategory') ?></th>
-            <td><?= $this->Number->format($content->IdCategory) ?></td>
+            <th scope="row"><?= __('Category') ?></th>
+            <td><?= $content->category->Description?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdBotanicalFamily') ?></th>
-            <td><?= $this->Number->format($content->IdBotanicalFamily) ?></td>
+            <th scope="row"><?= __('Botanical Family') ?></th>
+            <td><?= $content->botanicalfamily->Description ?></td>
         </tr>
     </table>
     <div class="row">

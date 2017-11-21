@@ -16,8 +16,8 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('IdContent') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('IdCategory') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('IdBotanicalFamily') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Category') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Botanical Family') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ScientificName') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -27,8 +27,8 @@
             <?php foreach ($contents as $content): ?>
             <tr>
                 <td><?= $this->Number->format($content->IdContent) ?></td>
-                <td><?= $this->Number->format($content->IdCategory) ?></td>
-                <td><?= $this->Number->format($content->IdBotanicalFamily) ?></td>
+                <td><?= $content->category->Description ?></td>
+                <td><?= $content->botanicalfamily->Description ?></td>
                 <td><?= h($content->Name) ?></td>
                 <td><?= h($content->ScientificName) ?></td>
                 <td class="actions">

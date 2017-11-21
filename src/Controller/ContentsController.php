@@ -29,7 +29,7 @@ class ContentsController extends AppController
     public function index()
     {
         $contents = $this->paginate($this->Contents);
-
+        $withRelations = $this->Contents->loadInto($contents, ['Categories','Botanicalfamilies']);
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
     }
@@ -44,8 +44,9 @@ class ContentsController extends AppController
     public function view($id = null)
     {
         $content = $this->Contents->get($id, [
-            'contain' => []
+            'contain' => ['Categories','Botanicalfamilies']
         ]);
+
 
         $this->set('content', $content);
         $this->set('_serialize', ['content']);
@@ -88,7 +89,7 @@ class ContentsController extends AppController
 
 
         $content = $this->Contents->get($id, [
-            'contain' => []
+            'contain' => ['Categories','Botanicalfamilies']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
