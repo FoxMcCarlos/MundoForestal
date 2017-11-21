@@ -17,7 +17,7 @@ class ContentalbumsController extends AppController
 
   public function initialize()
   {
-    $this->loadComponent('Csrf');
+    $this->loadComponent('Flash');
     $this->loadModel('Albums');
     $this->loadModel('Contents');
   }

@@ -14,7 +14,7 @@ class ResourcesController extends AppController
 {
   public function initialize()
   {
-    $this->loadComponent('Csrf');
+    $this->loadComponent('Flash');
     $this->loadModel('Contents');
   }
 

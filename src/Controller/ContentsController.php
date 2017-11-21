@@ -16,7 +16,7 @@ class ContentsController extends AppController
 {
   public function initialize()
   {
-    $this->loadComponent('Csrf');
+    $this->loadComponent('Flash');
     $this->loadModel('Categories');
     $this->loadModel('Botanicalfamilies');
   }
@@ -85,7 +85,7 @@ class ContentsController extends AppController
      */
     public function edit($id = null)
     {
-        
+
 
         $content = $this->Contents->get($id, [
             'contain' => []
