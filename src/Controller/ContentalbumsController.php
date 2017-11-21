@@ -100,8 +100,8 @@ class ContentalbumsController extends AppController
         }
         $this->set(compact('contentalbum'));
         $this->set('_serialize', ['contentalbum']);
-        $this->set('Albums',$this->Albums->find('list'));
-        $this->set('Contents',$this->Contents->find('list'));
+        $this->set('albums',$this->Albums->find('list'));
+        $this->set('contents',$this->Contents->find('list'));
     }
 
     /**
