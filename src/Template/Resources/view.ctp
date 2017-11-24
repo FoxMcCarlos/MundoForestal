@@ -25,8 +25,8 @@
             <td><?= $this->Number->format($resource->IdResource) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdContent') ?></th>
-            <td><?= $this->Number->format($resource->IdContent) ?></td>
+            <th scope="row"><?= __('Content') ?></th>
+            <td><?= $resource->content->Name ?></td>
         </tr>
     </table>
 </div>

@@ -26,7 +26,7 @@ class ResourcesController extends AppController
     public function index()
     {
         $resources = $this->paginate($this->Resources);
-
+        $withRelations = $this->Resources->loadInto($resources, ['Contents']);
         $this->set(compact('resources'));
         $this->set('_serialize', ['resources']);
     }
@@ -41,7 +41,7 @@ class ResourcesController extends AppController
     public function view($id = null)
     {
         $resource = $this->Resources->get($id, [
-            'contain' => []
+            'contain' => ['Contents']
         ]);
 
         $this->set('resource', $resource);
@@ -58,7 +58,7 @@ class ResourcesController extends AppController
 
         $resource = $this->Resources->newEntity();
         if ($this->request->is('post')) {
-          $target_dir = "webroot/resources/";
+          $target_dir = "webroot/img/";
           $target_file = $target_dir . basename($_FILES["files"]["name"]);
           move_uploaded_file($_FILES["files"]["tmp_name"], $target_file);
             $resource = $this->Resources->patchEntity($resource, $this->request->getData());

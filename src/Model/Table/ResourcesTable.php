@@ -29,10 +29,12 @@ class ResourcesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->setTable('resources');
         $this->setDisplayField('IdResource');
         $this->setPrimaryKey('IdResource');
+        $this->belongsTo('Contents')->setForeignKey('IdContent');
+
     }
 
     /**

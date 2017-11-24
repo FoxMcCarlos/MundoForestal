@@ -22,7 +22,13 @@
         </tr>
         <tr>
             <th scope="row"><?= __('ScientificName') ?></th>
-            <td><?= h($content->ScientificName) ?></td>
+            <td><?php  if ($content->ScientificName == ""){
+                echo "No tiene";
+            }else {
+              echo  $content->ScientificName ;
+            }
+
+             ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id Content') ?></th>
@@ -34,7 +40,13 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Botanical Family') ?></th>
-            <td><?= $content->botanicalfamily->Description ?></td>
+            <td><?php  if ($content->IdBotanicalFamily == 0){
+                echo "No tiene";
+            }else {
+              echo  $content->botanicalfamily->Description ;
+            }
+
+             ?></td>
         </tr>
     </table>
     <div class="row">

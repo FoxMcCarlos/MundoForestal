@@ -25,8 +25,8 @@
             <?php foreach ($contentalbums as $contentalbum): ?>
             <tr>
                 <td><?= $this->Number->format($contentalbum->IdAlbumContent) ?></td>
-                <td><?= $this->Number->format($contentalbum->IdAlbum) ?></td>
-                <td><?= $this->Number->format($contentalbum->IdContent) ?></td>
+                <td><?= $contentalbum->album->Name ?></td>
+                <td><?= $contentalbum->content->Name ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $contentalbum->IdAlbumContent]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contentalbum->IdAlbumContent]) ?>

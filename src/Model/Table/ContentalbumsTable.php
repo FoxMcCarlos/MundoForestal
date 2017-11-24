@@ -33,6 +33,12 @@ class ContentalbumsTable extends Table
         $this->setTable('contentalbums');
         $this->setDisplayField('IdAlbumContent');
         $this->setPrimaryKey('IdAlbumContent');
+        $this->belongsTo('Contents')
+              ->setForeignKey('IdContent')
+              ->setJoinType('INNER');
+        $this->belongsTo('Albums')
+              ->setForeignKey('IdAlbum')
+              ->setJoinType('INNER');
     }
 
     /**

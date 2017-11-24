@@ -33,6 +33,8 @@ class AlbumsTable extends Table
         $this->setTable('albums');
         $this->setDisplayField('Name');
         $this->setPrimaryKey('IdAlbum');
+        
+
     }
 
     /**

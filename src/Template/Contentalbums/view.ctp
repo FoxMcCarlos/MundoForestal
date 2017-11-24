@@ -21,12 +21,12 @@
             <td><?= $this->Number->format($contentalbum->IdAlbumContent) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdAlbum') ?></th>
-            <td><?= $this->Number->format($contentalbum->IdAlbum) ?></td>
+            <th scope="row"><?= __('Album') ?></th>
+            <td><?= $contentalbum->album->Name ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('IdContent') ?></th>
-            <td><?= $this->Number->format($contentalbum->IdContent) ?></td>
+            <th scope="row"><?= __('Content') ?></th>
+            <td><?= $contentalbum->content->Name ?></td>
         </tr>
     </table>
 </div>

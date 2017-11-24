@@ -25,7 +25,7 @@
             <?php foreach ($resources as $resource): ?>
             <tr>
                 <td><?= $this->Number->format($resource->IdResource) ?></td>
-                <td><?= $this->Number->format($resource->IdContent) ?></td>
+                <td><?= $resource->content->Name ?></td>
                 <td><?= h($resource->Resource) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $resource->IdResource]) ?>

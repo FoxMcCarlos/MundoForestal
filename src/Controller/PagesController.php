@@ -31,6 +31,15 @@ use Cake\View\Exception\MissingTemplateException;
 class PagesController extends AppController
 {
 
+  public function initialize()
+  {
+
+    $this->loadModel('Albums');
+    $this->loadModel('Contentalbums');
+    $this->loadModel('Resources');
+
+  }
+
     /**
      * Displays a view
      *
@@ -57,7 +66,34 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
+        $albums = $this->Albums->find('all');
+        $this->set('albums',$albums);
+        $this->set('_serialize', ['albums']);
+        #Imagen aleatoria del albúm1
+        $album1 = $this->Contentalbums->find('all',['conditions' => ['IdAlbum' => 1],'order'=> 'rand()','limit' => 1])->toArray();
+        $albumA = $album1[0]['IdContent'];
+        $reso = $this->Resources->find('all',['conditions'=> ['IdContent' => $albumA]])->toArray();
+        #Imagen aleatoria del albúm2
+        $album2 = $this->Contentalbums->find('all',['conditions' => ['IdAlbum' => 2],'order'=> 'rand()','limit' => 1])->toArray();
+        $albumA2 = $album2[0]['IdContent'];
+        $reso2 = $this->Resources->find('all',['conditions'=> ['IdContent' => $albumA2]])->toArray();
+        #Imagen aleatoria del albúm 3
+        $album3 = $this->Contentalbums->find('all',['conditions' => ['IdAlbum' => 3],'order'=> 'rand()','limit' => 1])->toArray();
+        $albumA3 = $album3[0]['IdContent'];
+        $reso3 = $this->Resources->find('all',['conditions'=> ['IdContent' => $albumA3]])->toArray();
+        #Envio de variables a la vista para el albúm 1
+        $this->set('albumA',$albumA);
+        $this->set('reso',$reso);
+        #Envio de variables a la vista para el albúm 2
+        $this->set('albumA2',$albumA2);
+        $this->set('reso2',$reso2);
+        #Envio de variables a la vista para el albúm 3
+        $this->set('albumA3',$albumA3);
+        $this->set('reso3',$reso3);
+        $this->set('-serialize',['reso',]);
         $this->set(compact('page', 'subpage'));
+
+
 
         try {
             $this->render(implode('/', $path));

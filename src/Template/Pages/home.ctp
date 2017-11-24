@@ -95,50 +95,40 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Main Content -->
   <div class="container">
+    <h1>Albumes</h1>
+    <hr>
     <div class="row">
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Album No. 1</a>
-            </h4>
-            <h5>Fotos de Bosques</h5>
-          </div>
-          <div class="card-footer">
+
+      <?php foreach ($albums as $album): ?>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <?php
+            if($album->IdAlbum == 1)
+            {
+
+                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso[0]['Resource']."' alt='test' ></a>";
+            }elseif ($album->IdAlbum==2) {
+                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso2[0]['Resource']."' alt='test' ></a>";
+            }elseif($album->IdAlbum==3)
+            {
+                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso3[0]['Resource']."' alt='test' ></a>";
+            }
+
+
+            ?>
+            <div class="card-body">
+              <h4 class="card-title" style="text-align: center">
+                <a href="#" > <?= $album->Name ?></a>
+              </h4>
+              <h5></h5>
+            </div>
+            <div class="card-footer">
+            </div>
           </div>
         </div>
-      </div>
+      <?php endforeach;?>
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Album No. 2</a>
-            </h4>
-            <h5>Bosques Soleados</h5>
-          </div>
-          <div class="card-footer">
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Album No. 3</a>
-            </h4>
-            <h5>Fotos de Arboles</h5>
-          </div>
-          <div class="card-footer">
-
-          </div>
-        </div>
-      </div>
         <!-- Pager
         <div class="clearfix">
           <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>

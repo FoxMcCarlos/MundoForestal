@@ -30,7 +30,7 @@ class ContentalbumsController extends AppController
     public function index()
     {
         $contentalbums = $this->paginate($this->Contentalbums);
-
+        $withRelations = $this->Contentalbums->loadInto($contentalbums, ['Contents','Albums']);
         $this->set(compact('contentalbums'));
         $this->set('_serialize', ['contentalbums']);
     }
@@ -45,7 +45,7 @@ class ContentalbumsController extends AppController
     public function view($id = null)
     {
         $contentalbum = $this->Contentalbums->get($id, [
-            'contain' => []
+            'contain' => ['Contents','Albums']
         ]);
 
         $this->set('contentalbum', $contentalbum);

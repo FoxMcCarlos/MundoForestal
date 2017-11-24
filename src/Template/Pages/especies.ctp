@@ -98,8 +98,7 @@ $cakeDescription = 'Mundo Forestal';
   <div class="container">
     <div class="row">
 
-      <?php
-        foreach ($contents as $content):?>
+      <?php foreach ($contents as $content):?>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">

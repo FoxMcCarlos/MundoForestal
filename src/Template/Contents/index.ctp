@@ -28,9 +28,22 @@
             <tr>
                 <td><?= $this->Number->format($content->IdContent) ?></td>
                 <td><?= $content->category->Description ?></td>
-                <td><?= $content->botanicalfamily->Description ?></td>
+
+                <td><?php  if ($content->IdBotanicalFamily == 0){
+                    echo "No tiene";
+                }else {
+                  echo  $content->botanicalfamily->Description ;
+                }
+
+                 ?></td>
                 <td><?= h($content->Name) ?></td>
-                <td><?= h($content->ScientificName) ?></td>
+                <td><?php  if ($content->ScientificName == ""){
+                    echo "No tiene";
+                }else {
+                  echo  $content->ScientificName ;
+                }
+
+                 ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $content->IdContent]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $content->IdContent]) ?>
