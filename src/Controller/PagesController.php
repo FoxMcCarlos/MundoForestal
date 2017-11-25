@@ -135,5 +135,16 @@ class PagesController extends AppController
         $this->set('_serialize', ['content']);
     }
 
+    public function terminology($id = null)
+    {
+
+        $this->loadModel('Contents');
+        $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2))),  ['limit' => 12]);
+
+        $this->set(compact('contents'));
+        $this->set('_serialize', ['contents']);
+
+    }
+
 
 }
