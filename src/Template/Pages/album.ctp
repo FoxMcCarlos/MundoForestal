@@ -37,14 +37,15 @@ $cakeDescription = 'Mundo Forestal';
     <title>
         <?= $cakeDescription ?>
     </title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-
+    <?php
+      echo $this->Html->css('bootstrap.min.css');
+      echo $this->Html->css('clean-blog.min.css');
+    ?>
+    <!-- Bootstrap core CSS
+    <link href="webroot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    Custom styles for this template
+    <link href="webroot/css/clean-blog.min.css" rel="stylesheet">
+    -->
 </head>
 
 <body>
@@ -80,13 +81,13 @@ $cakeDescription = 'Mundo Forestal';
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+  <header class="masthead" style="background-image: url('/img/tree.jpg'); -webkit-filter: grayscale(50%); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Bienvenidos</h1>
-            <span class="subheading">Desde Costa Rica, con mucho orgullo para el resto del mundo</span>
+            <h1><?= $album->Name ?></h1>
+            <span class="subheading"></span>
           </div>
         </div>
       </div>
@@ -95,48 +96,60 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Main Content -->
   <div class="container">
-    <h1>Albumes</h1>
-    <hr>
     <div class="row">
 
+      <?php foreach ($contentsByAlbum as $contentA):?>
 
-      <?php foreach ($albums as $album): ?>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <?php
-            if($album->IdAlbum == 1)
-            {
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <?php foreach($Reso as $img):?>
 
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso[0]['Resource']."' alt='test' ></a>";
-            }elseif ($album->IdAlbum==2) {
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso2[0]['Resource']."' alt='test' ></a>";
-            }elseif($album->IdAlbum==3)
-            {
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso3[0]['Resource']."' alt='test' ></a>";
-            }
+          <?php if ($img == null) {
+              echo "No Tengo imagen";
+              break;
+          }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
+
+         echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
+
+                break;
+          }
 
 
-            ?>
-            <div class="card-body">
-              <h4 class="card-title" style="text-align: center">
-                  <?= $this->Html->link(__($album->Name), ['action' => 'album', $album->IdAlbum]) ?>
-              </h4>
-              <h5></h5>
-            </div>
-            <div class="card-footer">
-            </div>
+          ?>
+
+          <?php endforeach;?>
+          <div class="card-body">
+            <h4 class="card-title" style="text-align:center;">
+              <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->IdContent]) ?>
+            </h4>
+            <h5></h5>
+          </div>
+          <div class="card-footer">
           </div>
         </div>
-      <?php endforeach;?>
+      </div>
 
-        <!-- Pager
-        <div class="clearfix">
-          <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
-        </div>-->
+      <?php  endforeach;?>
 
     </div>
   </div>
 
+  <!-- End content-->
+
+        <div class="paginator" style="margin-left:430px;">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first')) ?>
+                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next(__('next') . ' >') ?>
+                <?= $this->Paginator->last(__('last') . ' >>') ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        </div>
+      </div>
+
+        </div>
+        </div>
   <hr>
 
   <!-- Footer -->
@@ -177,12 +190,18 @@ $cakeDescription = 'Mundo Forestal';
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/popper/popper.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--  <script src="webroot/js/jquery/jquery.min.js"></script>
+  <script src="webroot/js/popper/popper.min.js"></script>
+  <script src="webroot/js/bootstrap/js/bootstrap.min.js"></script> -->
 
   <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
+  <?php
+  echo $this->Html->script('jquery.min.js');
+  echo $this->Html->script('popper.min.js');
+  echo $this->Html->script('bootstrap.min.js');
+  echo $this->Html->script('clean-blog.min.js');
+  ?>
+  <!--<script src="webroot/js/clean-blog.min.js"></script>-->
 
 </body>
 </html>

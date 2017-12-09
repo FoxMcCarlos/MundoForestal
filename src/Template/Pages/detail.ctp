@@ -81,7 +81,8 @@ $cakeDescription = 'Mundo Forestal';
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+  <?php echo "<header class='masthead' style='background-image: url(/".$resource[0]['Resource']."); -webkit-filter: grayscale(50%);'>" ;?>
+
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -100,11 +101,12 @@ $cakeDescription = 'Mundo Forestal';
 
       <div class="col-lg-12 col-md-12 mb-12">
         <div><h4 style="color:green;  font-style: italic;">Nombre científico: <?= $content->ScientificName ?></h4></div>
+        <div><h4 style="color:red;  font-style: none;">Familia botánica: <?= $content->botanicalfamily->Description ?></h4></div>
         <div class"panel panel-info" align="justify">
           <p><?= $content->Description ?></p>
         </div>
       </div>
-      
+
 
     </div>
   </div>

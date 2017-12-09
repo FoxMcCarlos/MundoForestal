@@ -37,6 +37,7 @@ class PagesController extends AppController
     $this->loadModel('Albums');
     $this->loadModel('Contentalbums');
     $this->loadModel('Resources');
+    $this->loadModel('Contents');
 
   }
 
@@ -109,12 +110,29 @@ class PagesController extends AppController
     public function especies($id = null)
     {
 
-        $this->loadModel('Contents');
+
         $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 1))),  ['limit' => 12]);
 
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
 
+    }
+    public function album($id = null)
+    {
+      $album = $this->Albums->get($id, [
+          'contain' => []
+      ]);
+      $x = 0;
+      $contentsByAlbum = $this->paginate($this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $id),'contain' => ['Contents'])),  ['limit' => 12]);
+      foreach ($contentsByAlbum as $content) {
+        $Reso[] = $this->Resources->find('all',['conditions' =>['Resources.IdContent' => $content->IdContent]])->toArray();
+        $x+=1;
+      };
+
+      $this->set(compact('Reso'));
+      $this->set(compact('album'));
+      $this->set(compact('contentsByAlbum'));
+      $this->set('_serialize', ['contentsByAlbum']);
     }
 
     /**
@@ -126,19 +144,24 @@ class PagesController extends AppController
      */
     public function detail($id = null)
     {
-        $this->loadModel('Contents');
+
         $content = $this->Contents->get($id, [
-            'contain' => []
+            'contain' => ['Botanicalfamilies']
         ]);
+        $resource = $this->Resources->find('all', [
+            'conditions' => ['IdContent' => $content->IdContent]
+        ])->toArray();
 
         $this->set('content', $content);
-        $this->set('_serialize', ['content']);
+        $this->set('resource', $resource);
+        $this->set('_serialize', ['content','resource']);
+
     }
 
     public function terminology($id = null)
     {
 
-        $this->loadModel('Contents');
+
         $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2))),  ['limit' => 12]);
 
         $this->set(compact('contents'));
