@@ -160,13 +160,14 @@ class PagesController extends AppController
 
     public function terminology($id = null)
     {
-
-
         $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2))),  ['limit' => 12]);
+        foreach ($contents as $content) {
+          $Reso[] = $this->Resources->find('all',['conditions' =>['Resources.IdContent' => $content->IdContent]])->toArray();
+        };
 
+        $this->set(compact('Reso'));
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
-
     }
 
 

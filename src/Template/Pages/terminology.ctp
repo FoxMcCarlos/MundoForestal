@@ -117,6 +117,22 @@ $cakeDescription = 'Mundo Forestal';
 
           <li class="list-inline-item">
             <div class="card" style="width: 17rem;">
+              <?php foreach($Reso as $img):?>
+
+              <?php if ($img == null) {
+                  echo "No Tengo imagen";
+                  break;
+              }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
+
+             echo "<a href='#'><img  class='card-img-top' src='/".$img[0]['Resource']."' alt='test' ></a>";
+
+                    break;
+              }
+
+
+              ?>
+
+              <?php endforeach;?>
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
