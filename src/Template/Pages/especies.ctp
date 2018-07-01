@@ -21,11 +21,7 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
+
 
 $cakeDescription = 'Mundo Forestal';
 ?>
@@ -100,9 +96,25 @@ $cakeDescription = 'Mundo Forestal';
 
       <?php foreach ($contents as $content):?>
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <?php foreach($Reso as $img):?>
+
+            <?php if ($img == null) {
+                echo "No Tengo imagen";
+                break;
+            }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
+
+           echo "<a href='#'><img  style=' max-width:100%;
+  max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
+
+                  break;
+            }
+
+
+            ?>
+
+            <?php endforeach;?>
           <div class="card-body">
             <h4 class="card-title">
               <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->IdContent]) ?>

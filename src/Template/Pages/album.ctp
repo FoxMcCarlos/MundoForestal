@@ -21,11 +21,7 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
+
 
 $cakeDescription = 'Mundo Forestal';
 ?>
@@ -86,7 +82,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1><?= $album->Name ?></h1>
+            <h2><?= $album->Name ?></h2>
             <span class="subheading"></span>
           </div>
         </div>
@@ -109,7 +105,8 @@ $cakeDescription = 'Mundo Forestal';
               break;
           }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
 
-         echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
+         echo "<a href='#'><img  style=' max-width:100%;
+max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
 
                 break;
           }
@@ -135,16 +132,25 @@ $cakeDescription = 'Mundo Forestal';
   </div>
 
   <!-- End content-->
+<div class="container">
 
-        <div class="paginator" style="margin-left:430px;">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="paginator">
+                <ul class="pagination">
+                    <?= $this->Paginator->first('<< ' . __('first')) ?>
+                    <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                    <?= $this->Paginator->numbers() ?>
+                    <?= $this->Paginator->next(__('next') . ' >') ?>
+                    <?= $this->Paginator->last(__('last') . ' >>') ?>
+                </ul>
+                <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+            </div>
+          </div>
+        </div>
+        </div>
+
         </div>
       </div>
 

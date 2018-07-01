@@ -21,11 +21,7 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
+
 
 $cakeDescription = 'Mundo Forestal';
 ?>
@@ -81,7 +77,7 @@ $cakeDescription = 'Mundo Forestal';
   </nav>
 
   <!-- Page Header -->
-  <?php echo "<header class='masthead' style='background-image: url(/".$resource[0]['Resource']."); -webkit-filter: grayscale(50%);'>" ;?>
+  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$resource[0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
 
     <div class="container">
       <div class="row">

@@ -21,11 +21,6 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = false;
 
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
 
 $cakeDescription = 'Mundo Forestal';
 ?>
@@ -85,7 +80,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Bienvenidos</h1>
+            <h2>Bienvenidos</h2>
             <span class="subheading">Desde Costa Rica, con mucho orgullo para el resto del mundo</span>
           </div>
         </div>
@@ -106,13 +101,38 @@ $cakeDescription = 'Mundo Forestal';
             <?php
             if($album->IdAlbum == 1)
             {
+                if ($reso == null) {
+                    echo "No tengo imagen";
+                }else {
+                  echo "<img  style='max-width:100%;
+         max-height:100%; border-radius:2px;'src='".$reso[0]['Resource']."' alt='test' >";
+                }
 
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso[0]['Resource']."' alt='test' ></a>";
-            }elseif ($album->IdAlbum==2) {
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso2[0]['Resource']."' alt='test' ></a>";
-            }elseif($album->IdAlbum==3)
+
+
+            }
+            elseif ($album->IdAlbum==2)
             {
-                echo "<a href='#'><img  style='width:348px; height:2border-radius:2px;'src='".$reso3[0]['Resource']."' alt='test' ></a>";
+              if ($reso2 == null) {
+                  echo "No tengo imagen";
+              }else {
+                echo "<img  style='max-width:100%;
+       max-height:100%; border-radius:2px;'src='".$reso2[0]['Resource']."' alt='test' >";
+              }
+
+
+
+            }
+            elseif($album->IdAlbum==3)
+            {
+              if ($reso3 == null) {
+                  echo "No tengo imagen";
+              }else {
+                echo "<img  style='max-width:100%;
+       max-height:100%; border-radius:2px;'src='".$reso3[0]['Resource']."' alt='test' >";
+              }
+
+
             }
 
 

@@ -58,9 +58,9 @@ class ResourcesController extends AppController
 
         $resource = $this->Resources->newEntity();
         if ($this->request->is('post')) {
-          $target_dir = "webroot/img/";
-          $target_file = $target_dir . basename($_FILES["files"]["name"]);
-          move_uploaded_file($_FILES["files"]["tmp_name"], $target_file);
+            $target_dir = "test/";
+            $target_file = $target_dir.basename($_FILES["files"]["name"]);
+            move_uploaded_file($_FILES["files"]["tmp_name"],$target_file);
             $resource = $this->Resources->patchEntity($resource, $this->request->getData());
             if ($this->Resources->save($resource)) {
                 $this->Flash->success(__('The resource has been saved.'));
@@ -89,10 +89,14 @@ class ResourcesController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $temp = $_FILES["files"]["tmp_name"];
+            $target_dir = "test/";
+            $target_file = $target_dir.basename($_FILES["files"]["name"]);
+ 	          move_uploaded_file($temp,$target_file);
+
             $resource = $this->Resources->patchEntity($resource, $this->request->getData());
             if ($this->Resources->save($resource)) {
                 $this->Flash->success(__('The resource has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The resource could not be saved. Please, try again.'));
@@ -101,6 +105,9 @@ class ResourcesController extends AppController
         $this->set('_serialize', ['resource']);
         $this->set('contents',$this->Contents->find('list'));
     }
+
+
+
 
     /**
      * Delete method
