@@ -33,7 +33,7 @@ class PagesController extends AppController
 
   public function initialize()
   {
-
+    
     $this->loadModel('Albums');
     $this->loadModel('Contentalbums');
     $this->loadModel('Resources');
@@ -97,7 +97,7 @@ class PagesController extends AppController
 
 
         try {
-            
+
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
             if (Configure::read('debug')) {
