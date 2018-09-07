@@ -34,70 +34,90 @@ $cakeDescription = 'Mundo Forestal';
     </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/clean-blog.css" rel="stylesheet">
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Mundo Forestal</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">Quienes Somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Agricultura</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Consultorio del Dr.Arbol</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
+<?php echo $this->render("../Commons/_navbar"); ?>
+    <style media="screen">
+        .black, .hover-black:hover {
+
+        color: #fff !important;
+        background-color: #008000 !important;
+
+        }
+        .animate-opacity {
+
+            animation: opac 0.8s;
+
+        }
+
+
+    </style>
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+  <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h2>Bienvenidos</h2>
-            <span class="subheading">Desde Costa Rica, con mucho orgullo para el resto del mundo</span>
-          </div>
-        </div>
+           <div class="site-heading; " >
+            <div class="site-heading" >
+
+
+
+              <div style="white-space:nowrap; "   >
+                    <span >
+                        <h2>Bienvenidos</h2> <br>
+                            <span >
+                                Desde Costa Rica, con mucho orgullo para el resto del mundo
+                          </span>
+                    </span>
+              </div>
+
+            </div>
+         </div>
+
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
+
   <div class="container">
-    <h1>Albumes</h1>
+    <h1 style="padding-top:5%;">Álbumes</h1>
     <hr>
     <div class="row">
 
+    <style media="screen">
 
-      <?php foreach ($albums as $album): ?>
+
+      div.card {
+        width: 80%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 55px;
+
+      }
+      div.card:hover{
+       box-shadow: 0 4px 8px 0 rgb(102, 153, 0), 0 6px 20px 0 rgb(136, 204, 0);
+
+      }
+      div.content {
+        text-align: center;
+
+        height: 175%;
+      }
+      </style>
+    <?php foreach ($albums as $album): ?>
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
+          <div class="card">
             <?php
             if($album->IdAlbum == 1)
             {
@@ -105,7 +125,7 @@ $cakeDescription = 'Mundo Forestal';
                     echo "No tengo imagen";
                 }else {
                   echo "<img  style='max-width:100%;
-         max-height:100%; border-radius:2px;'src='".$reso[0]['Resource']."' alt='test' >";
+         max-height:100%; border-radius:2px;'src='img/tree.jpg' alt='test' >"; //.$reso[0]['Resource'].
                 }
 
 
@@ -117,7 +137,7 @@ $cakeDescription = 'Mundo Forestal';
                   echo "No tengo imagen";
               }else {
                 echo "<img  style='max-width:100%;
-       max-height:100%; border-radius:2px;'src='".$reso2[0]['Resource']."' alt='test' >";
+       max-height:100%; border-radius:2px;'src='img/tree.jpg' alt='test' >";//.$reso2[0]['Resource'].
               }
 
 
@@ -129,7 +149,7 @@ $cakeDescription = 'Mundo Forestal';
                   echo "No tengo imagen";
               }else {
                 echo "<img  style='max-width:100%;
-       max-height:100%; border-radius:2px;'src='".$reso3[0]['Resource']."' alt='test' >";
+       max-height:100%; border-radius:2px;'src='img/arbolito.jpg' alt='test' >";//.$reso3[0]['Resource'].
               }
 
 
@@ -137,13 +157,13 @@ $cakeDescription = 'Mundo Forestal';
 
 
             ?>
-            <div class="card-body">
-              <h4 class="card-title" style="text-align: center">
-                  <?= $this->Html->link(__($album->Name), ['action' => 'album', $album->IdAlbum]) ?>
+            <div class="content">
+              <h4 class="" style="text-align: center; padding-top:8%; padding-bottom:5%;">
+                <?= $this->Html->link(__($album->Name), ['action' => 'album', $album->IdAlbum]) ?>
               </h4>
               <h5></h5>
             </div>
-            <div class="card-footer">
+            <div class="3">
             </div>
           </div>
         </div>
@@ -160,41 +180,7 @@ $cakeDescription = 'Mundo Forestal';
   <hr>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="copyright text-muted">Copyright &copy; Mundo Forestal 2017</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -202,7 +188,7 @@ $cakeDescription = 'Mundo Forestal';
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
+<!--   <script src="js/clean-blog.min.js"></script>-->
 
 </body>
 </html>

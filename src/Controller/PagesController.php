@@ -33,7 +33,7 @@ class PagesController extends AppController
 
   public function initialize()
   {
-
+    
     $this->loadModel('Albums');
     $this->loadModel('Contentalbums');
     $this->loadModel('Resources');
