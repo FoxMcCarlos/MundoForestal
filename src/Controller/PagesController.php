@@ -97,7 +97,7 @@ class PagesController extends AppController
 
 
         try {
-            
+
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
             if (Configure::read('debug')) {
@@ -128,12 +128,21 @@ class PagesController extends AppController
       foreach ($contentsByAlbum as $content) {
         $Reso[] = $this->Resources->find('all',['conditions' =>['Resources.IdContent' => $content->IdContent]])->toArray();
         $x+=1;
-      };
+
+
+
+
+      }
 
       $this->set(compact('Reso'));
       $this->set(compact('album'));
+      $this->set(compact('data'));
+      $this->set('_serialize', ['data']);
       $this->set(compact('contentsByAlbum'));
       $this->set('_serialize', ['contentsByAlbum']);
+      $this->set('data', $contentsByAlbum);
+
+
     }
 
     /**

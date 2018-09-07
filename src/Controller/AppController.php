@@ -52,6 +52,8 @@ class AppController extends Controller
         //$this->loadComponent('Csrf');
     }
 
+
+
     /**
      * Before render callback.
      *
@@ -59,16 +61,18 @@ class AppController extends Controller
      * @return \Cake\Http\Response|null|void
      */
 
-     
+
     public function beforeRender(Event $event)
     {
         // Note: These defaults are just to get started quickly with development
         // and should not be used in production. You should instead set "_serialize"
         // in each action as required.
+    
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
     }
+
 }
