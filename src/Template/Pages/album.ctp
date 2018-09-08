@@ -71,18 +71,24 @@ $cakeDescription = 'Mundo Forestal';
   <!-- Main Content -->
   <div class="container">
 
+<br>
     <div class="row">
-      <form class="" action="/pages/buscar" method="post">
-        <div class="input-group mb-3">
-    <input id="sb" type="text" class="form-control" placeholder="Ingrese su búsqueda" aria-label="Ingrese su búsqueda" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-success" type="button">Buscar</button>
-    </div>
-  </div>
-      </form>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <form class="" action="" method="post">
+          <div class="input-group mb-3">
+                    <input id="search" type="text" class="form-control" placeholder="Buscar en este album" aria-label="Ingrese su búsqueda">
+
+          </div>
+        </form>
+        <div class="" id="show2">
+        <p id="show"></p>
+        </div>
+      </div>
     </div>
 
     <div class="row">
+
 
       <?php foreach ($contentsByAlbum as $contentA):?>
 
@@ -158,41 +164,15 @@ max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ><
 
   <!-- Custom scripts for this template -->
   <?php
-  echo $this->Html->script('jquery.min.js');
+  echo $this->Html->script('jquery.js');
 
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
+  echo $this->Html->script('liveSearch.js');
 
   ?>
-  <script>
-  $(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-      $.ajax({
-        url:"../pages/detail",
-        method:"post",
-        data:{query:query},
-        success:function(data)
-        {
-          $('#result').html(data);
-        }
-      });
-    }
 
-    $('#sb').keyup(function(){
-      var search = $(this).val();
-      if(search != '')
-      {
-        load_data(search);
-      }
-      else
-      {
-        load_data();
-      }
-    });
-  });
-  </script>
+
   <!--<script src="webroot/js/clean-blog.min.js"></script>-->
 
 </body>

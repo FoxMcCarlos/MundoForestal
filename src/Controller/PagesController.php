@@ -33,11 +33,13 @@ class PagesController extends AppController
 
   public function initialize()
   {
-    
+
     $this->loadModel('Albums');
     $this->loadModel('Contentalbums');
     $this->loadModel('Resources');
     $this->loadModel('Contents');
+    $this->loadComponent('RequestHandler');
+    $data = null;
 
   }
 
@@ -140,10 +142,24 @@ class PagesController extends AppController
       $this->set('_serialize', ['data']);
       $this->set(compact('contentsByAlbum'));
       $this->set('_serialize', ['contentsByAlbum']);
-      $this->set('data', $contentsByAlbum);
+      $session = $this->request->session();
+      $session->write('album', $id);
 
 
     }
+
+    public function buscar($search = null)
+    {
+      $s = $_POST['search'];
+      $session = $this->request->session();
+      $album = $session->read('album');
+      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents']));
+      $data->select(['Contents.idContent','Contents.Name']);
+      $this->set(compact('data'));
+      $this->set('_serialize', ['data']);
+      $this->RequestHandler->renderAs($this, 'json');
+    }
+
 
     /**
      * View method
@@ -167,6 +183,7 @@ class PagesController extends AppController
         $this->set('_serialize', ['content','resource']);
 
     }
+
 
     public function terminology($id = null)
     {
