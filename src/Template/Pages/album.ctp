@@ -69,10 +69,52 @@ $cakeDescription = 'Mundo Forestal';
 
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container" >
 
 <br>
-    <div class="row">
+
+<style media="screen">
+    #show
+    {
+      position:absolute;
+      z-index: 1000;
+      background-color: white;
+      margin-top: -4%;
+
+    }
+    #liveSearchLi:hover
+    {
+
+    }
+    .liveSearchLu
+    {
+      list-style: none;
+      width: 100%;
+      padding-top: 4%;
+
+
+    }
+    #liveSearchLi
+    {
+      list-style: none;
+      width: 100%;
+
+
+
+    }
+    #show
+    {
+      width: 92%;
+
+
+    }
+    #search
+    {
+      border-radius: 20px;
+    }
+
+</style>
+    <div class="row" style="position:relative;">
 
       <div class="col-lg-4 col-md-6 mb-4">
         <form class="" action="" method="post">
@@ -81,8 +123,8 @@ $cakeDescription = 'Mundo Forestal';
 
           </div>
         </form>
-        <div class="" id="show2">
-        <p id="show"></p>
+        <div class="">
+            <p id="show" hidden></p>
         </div>
       </div>
     </div>

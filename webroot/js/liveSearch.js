@@ -12,10 +12,12 @@ function fill(Value) {
 
    //Hiding "display" div in "search.php" file.
    $('#show').hide();
+
 }
 
 $(document).ready(function() {
-
+      $('#show').removeAttr('hidden');
+      $('#show').hide();
 
    //On pressing ;a key on "Search box" in "search.php" file. This function will be called.
 
@@ -32,6 +34,8 @@ $(document).ready(function() {
            //Assigning empty value to "display" div in "search.php" file.
 
            $('#show').html("");
+           $('#show').hide();
+
 
        }
 
@@ -77,12 +81,15 @@ $(document).ready(function() {
                      else {
 
                        var array1 = [];
+                       var html = '<li id="liveSearchLi" class="list-group" style="border-radius:20px;">';
                        $.each( data, function( key, content ) {
                         for (var i = 0; i < content.length; i++) {
-                            array1.push(content[i].Contents['Name']);
-                            html = $('<div>'+ content[i].Contents['Name']+'</div>');
-                            $("#show").html(array1).show();
+                            array1.push(content[i].content['Name']);
+                            html += '<ul class="liveSearchLu list-group-item"><a style="text-decoration: none" href=../Pages/detail/'+ content[i].content['idContent']+'>'+ content[i].content['Name']+'</a></ul>';
+
                         }
+                        html += '</li>';
+                        $("#show").html(html).show();
                         });
 
 
