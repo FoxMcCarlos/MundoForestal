@@ -16,6 +16,7 @@ function fill(Value) {
 }
 
 $(document).ready(function() {
+
       $('#show').removeAttr('hidden');
       $('#show').hide();
 
@@ -64,6 +65,14 @@ $(document).ready(function() {
                    search: name
 
                },
+               beforeSend: function(){
+                 $('#spinner').removeAttr('hidden');
+                 $('#spinner').show();
+               },
+               complete: function(){
+                 
+                  $('#spinner').hide();
+               },
 
                //If result found, this funtion will be called.
 
@@ -89,7 +98,7 @@ $(document).ready(function() {
 
                         }
                         html += '</li>';
-                        $("#show").html(html).show();
+                        $("#show").html(html).show().fadeIn();
                         });
 
 
