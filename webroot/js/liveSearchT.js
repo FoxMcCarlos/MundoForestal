@@ -54,7 +54,7 @@ $(document).ready(function() {
 
                //Data will be sent to "ajax.php".
 
-               url: "../Pages/buscar",
+               url: "../Pages/buscarT",
 
                //Data, that will be sent to "ajax.php".
                datatype:JSON,
@@ -96,8 +96,8 @@ $(document).ready(function() {
                        var html = '<li id="liveSearchLi" class="list-group" style="border-radius:20px;">';
                        $.each( data, function( key, content ) {
                         for (var i = 0; i < content.length; i++) {
-                            array1.push(content[i].content['Name']);
-                            html += '<ul class="liveSearchLu list-group-item"><a style="text-decoration: none" href=../Pages/detail/'+ content[i].content['idContent']+'>'+ content[i].content['Name']+'</a></ul>';
+
+                            html += '<ul class="liveSearchLu list-group-item"><a style="text-decoration: none" href=../Pages/detail/'+ content[i]['IdContent']+'>'+ content[i]['Name']+'</a></ul>';
 
                         }
                         html += '</li>';

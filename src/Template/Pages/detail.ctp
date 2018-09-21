@@ -74,8 +74,17 @@ $cakeDescription = 'Mundo Forestal';
     <div class="row">
 
       <div class="col-lg-12 col-md-12 mb-12">
-        <div><h4 style="color:green;  font-style: italic;">Nombre científico: <?= $content->ScientificName ?></h4></div>
-        <div><h4 style="color:red;  font-style: none;">Familia botánica: <?= $content->botanicalfamily->Description ?></h4></div>
+        <?php
+            if ($content->ScientificName != "" || $content->ScientificName != null) {
+              echo "<div><h4 style='color:green;  font-style: italic;''>Nombre científico:".' '.$content->ScientificName. "</h4></div>";
+            }
+
+            if ($content->botanicalfamily != "" || $content->botanicalfamily != null) {
+              echo "<div><h4 style='color:red;  font-style: none;''>Familia botánica:" .' '.$content->botanicalfamily->Description."</h4></div>";
+            }
+         ?>
+
+
         <div class"panel panel-info" align="justify">
           <p><?= $content->Description ?></p>
         </div>

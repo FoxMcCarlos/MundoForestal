@@ -153,8 +153,17 @@ class PagesController extends AppController
       $s = $_POST['search'];
       $session = $this->request->session();
       $album = $session->read('album');
-      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents', 'Contents' => 'Resources']));
+    $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents', 'Contents' => 'Resources']));
       //$data->select(['Contents.idContent','Contents.Name','Contentalbums.Contents.Resources'])->contain(['Contents' => 'Resources']);
+      $this->set(compact('data'));
+      $this->set('_serialize', ['data']);
+      $this->RequestHandler->renderAs($this, 'json');
+    }
+
+    public function buscarT($search = null)
+    {
+      $s = $_POST['search'];
+      $data = $this->Contents->find('all', array('conditions' => array('Contents.IdCategory' => 2, "AND" => array("Contents.Name LIKE" => "$s%"))));
       $this->set(compact('data'));
       $this->set('_serialize', ['data']);
       $this->RequestHandler->renderAs($this, 'json');
@@ -185,7 +194,7 @@ class PagesController extends AppController
     }
 
 
-    public function terminology($id = null)
+    public function terminology()
     {
 
 

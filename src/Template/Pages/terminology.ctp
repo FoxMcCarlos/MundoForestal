@@ -35,7 +35,7 @@ $cakeDescription = 'Mundo Forestal';
     </title>
     <?php
       echo $this->Html->css('bootstrap.min.css');
-      echo $this->Html->css('clean-blog.min.css');
+      echo $this->Html->css('clean-blog.css');
       echo $this->Html->css('terminolgoy.css');
     ?>
     <!-- Bootstrap core CSS
@@ -66,16 +66,98 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Main Content -->
   <div class="container">
+    <style media="screen">
+        #show
+        {
+          position:absolute;
+          z-index: 1000;
+          background-color: white;
+          margin-top: -4%;
 
-    <div class="row">
-      <form>
-       <div class="form-group">
-         <label for="email">Busqueda de Terminologia:</label>
-         <input type="email" class="form-control" id="search" placeholder="Busqueda..">
-       </div>
-      </form>
+        }
+        .liveSearchLu a:hover
+        {
+          color:green;
+        }
+        .liveSearchLu
+        {
+          list-style: none;
+          width: 100%;
+          padding-top: 4%;
+
+
+        }
+        #liveSearchLi
+        {
+          list-style: none;
+          width: 100%;
+          height:100%;
+
+
+
+
+        }
+        #show
+        {
+          width: 92%;
+          height: 700%;
+          overflow-y:scroll;
+
+
+        }
+        #show::-webkit-scrollbar
+        {
+          width: 7px;
+
+          background-color: #F5F5F5;
+          border-radius: 20px;
+        }
+        #show::-webkit-scrollbar-track {
+        background-color: white;
+        border-radius: 20px;
+        }
+
+        #show::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background:green;
+        }
+        #search
+        {
+          border-radius: 20px;
+        }
+        #spin{
+
+          width: 30%;
+          height: auto;
+        }
+        #spinner
+        {
+            padding-top: 5%;
+        }
+
+
+
+
+    </style>
+    <br>
+    <div class="row" style="position:relative;">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <form class="" action="" method="post" autocomplete="off">
+          <div class="input-group mb-3">
+                    <input id="search" type="text" class="form-control" placeholder="Buscar en este album" aria-label="Ingrese su búsqueda">
+
+          </div>
+
+        </form>
+        <div class="result">
+            <span id="show" hidden></span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-2">
+        <span id="spinner" hidden> <img src="../../img/Ripple-1s-200px.gif" alt="" id="spin"> </span>
+      </div>
     </div>
-
 
     <div class="row">
       <div class="card">
@@ -136,18 +218,11 @@ $cakeDescription = 'Mundo Forestal';
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
   echo $this->Html->script('clean-blog.min.js');
+  echo $this->Html->script('liveSearchT.js');
+
   ?>
   <!--<script src="webroot/js/clean-blog.min.js"></script>-->
-  <script>
-$(document).ready(function(){
-  $("#search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myList li").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 
 </body>
 </html>
