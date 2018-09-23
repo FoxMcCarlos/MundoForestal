@@ -93,11 +93,11 @@ $(document).ready(function() {
                      else {
 
                        var array1 = [];
-                       var html = '<li id="liveSearchLi" class="list-group" style="border-radius:20px;">';
+                       var html = '<li id="liveSearchLi" style="border-radius:20px;">';
                        $.each( data, function( key, content ) {
                         for (var i = 0; i < content.length; i++) {
 
-                            html += '<ul class="liveSearchLu list-group-item"><a style="text-decoration: none" href=../Pages/detail/'+ content[i]['IdContent']+'>'+ content[i]['Name']+'</a></ul>';
+                            html += '<ul class="liveSearchLu "><a style="text-decoration: none" href=../Pages/detail/'+ content[i]['IdContent']+'>'+ content[i]['Name']+'</a></ul>';
 
                         }
                         html += '</li>';
