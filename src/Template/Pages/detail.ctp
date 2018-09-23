@@ -86,7 +86,29 @@ $cakeDescription = 'Mundo Forestal';
 
 
         <div class"panel panel-info" align="justify">
-          <p><?= $content->Description ?></p>
+          <?php
+
+              foreach ($terms as $term) {
+
+
+
+              if ( strstr((string) $content->Description, $term->Name)) {
+                if ($content->Name !== $term->Name) {
+                  //echo "Text found". ' '. strpos($content->Description,$term->Name);
+                  //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
+                  //echo strpos($content->Description,$term->Name) + strlen($term->Name);
+                  
+                  $content->Description = str_replace($term->Name, '<a href="/Pages/detail/'.$term->IdContent.'">'.$term->Name.'</a>', substr($content->Description, 0, strlen($content->Description)));
+                }
+                }
+
+
+              }
+
+
+
+            echo  '<p>' .  $content->Description . '</p>';
+        ?>
         </div>
       </div>
 

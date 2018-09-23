@@ -83,7 +83,7 @@ $cakeDescription = 'Mundo Forestal';
         {
           list-style: none;
           width: 100%;
-          padding-top: 4%;
+          padding-top: 2%;
 
 
         }
@@ -91,17 +91,33 @@ $cakeDescription = 'Mundo Forestal';
         {
           list-style: none;
           width: 100%;
-          height:100%;
+          height: 100%;
+          border: none;
+
+
 
 
 
 
         }
+
+
+        .result
+        {
+          min-height: 200%;
+          max-height: 200%;
+          overflow-y: hidden;
+        }
         #show
         {
           width: 92%;
-          height: 700%;
+          max-height: 400%;
           overflow-y:scroll;
+          clear: both;
+          border: 1px solid rgba(0,0,0,.15);
+          border-radius: 5px;
+
+
 
 
         }
@@ -132,9 +148,9 @@ $cakeDescription = 'Mundo Forestal';
         }
         #spinner
         {
-            padding-top: 5%;
+            display: block;
+            margin-top: -6%;
         }
-
 
 
 
@@ -217,7 +233,7 @@ $cakeDescription = 'Mundo Forestal';
   echo $this->Html->script('jquery.min.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
-  echo $this->Html->script('clean-blog.min.js');
+  echo $this->Html->script('clean-blog.js');
   echo $this->Html->script('liveSearchT.js');
 
   ?>
