@@ -193,9 +193,15 @@ $cakeDescription = 'Mundo Forestal';
               echo "No Tengo imagen";
               break;
           }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
+              if ("/'.$img[0]['Resource'].'") {
+                echo "<a href='#'><img  style=' max-width:100%;
+                max-height:100%; border-radius:2px;'src='/img/tree.jpg'  ></a>";
+              }else {
+                echo "<a href='#'><img  style=' max-width:100%;
+                max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."'  ></a>";
+              }
 
-         echo "<a href='#'><img  style=' max-width:100%;
-max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
+
 
                 break;
           }
@@ -204,6 +210,8 @@ max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ><
           ?>
 
           <?php endforeach;?>
+
+
           <div class="card-body">
             <h4 class="card-title" style="text-align:center;">
               <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->IdContent]) ?>
@@ -234,7 +242,7 @@ max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ><
                     <?= $this->Paginator->next(__('next') . ' >') ?>
                     <?= $this->Paginator->last(__('last') . ' >>') ?>
                 </ul>
-                <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+                <p><?= $this->Paginator->counter(['format' => __('Página {{page}} de {{pages}}')]) ?></p>
             </div>
           </div>
         </div>
