@@ -193,7 +193,9 @@ $cakeDescription = 'Mundo Forestal';
               echo "No Tengo imagen";
               break;
           }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
-              if ("/'.$img[0]['Resource'].'") {
+
+             $link = "/".$img[0]['Resource']."";
+            if ($link) {
                 echo "<a href='#'><img  style=' max-width:100%;
                 max-height:100%; border-radius:2px;'src='/img/tree.jpg'  ></a>";
               }else {
