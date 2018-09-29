@@ -36,7 +36,7 @@ $cakeDescription = 'Mundo Forestal';
     <?php
       echo $this->Html->css('bootstrap.min.css');
       echo $this->Html->css('clean-blog.css');
-      echo $this->Html->css('terminolgoy.css');
+
     ?>
     <!-- Bootstrap core CSS
     <link href="webroot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -187,7 +187,7 @@ $cakeDescription = 'Mundo Forestal';
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->IdContent]) ?>
+                  <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]) ?>
                 </h4>
                 <h5>Fotos de Bosques</h5>
               </div>
@@ -230,10 +230,10 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Custom scripts for this template -->
   <?php
-  echo $this->Html->script('jquery.min.js');
+  echo $this->Html->script('jquery.js');
+  echo $this->Html->script('jquery-ui.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
-  echo $this->Html->script('clean-blog.js');
   echo $this->Html->script('liveSearchT.js');
 
   ?>

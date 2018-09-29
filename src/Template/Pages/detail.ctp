@@ -52,16 +52,21 @@ $cakeDescription = 'Mundo Forestal';
     text-shadow: 4px 4px #33331a;
     color: #eaeae1
   }
+  .term
+  {
+    color: green;
+    
+  }
 </style>
 
   <!-- Page Header -->
-  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$resource[0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
+  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" >
-            <h1 id="titulo"><?= $content->Name ?></h1>
+            <h1 id="titulo"><?= $content[0]['Name'] ?></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -75,12 +80,12 @@ $cakeDescription = 'Mundo Forestal';
 
       <div class="col-lg-12 col-md-12 mb-12">
         <?php
-            if ($content->ScientificName != "" || $content->ScientificName != null) {
-              echo "<div><h4 style='color:green;  font-style: italic;''>Nombre científico:".' '.$content->ScientificName. "</h4></div>";
+            if ($content[0]['ScientificName'] != "" || $content[0]['ScientificName'] != null) {
+              echo "<div><h4 style='color:green;  font-style: italic;''>Nombre científico:".' '.$content[0]['ScientificName']. "</h4></div>";
             }
 
-            if ($content->botanicalfamily != "" || $content->botanicalfamily != null) {
-              echo "<div><h4 style='color:red;  font-style: none;''>Familia botánica:" .' '.$content->botanicalfamily->Description."</h4></div>";
+            if ($content[0]['botanicalfamily'] != "" || $content[0]['botanicalfamily'] != null) {
+              echo "<div><h4 style='color:red;  font-style: none;''>Familia botánica:" .' '.$content[0]['botanicalfamily']['Description']."</h4></div>";
             }
          ?>
 
@@ -92,13 +97,13 @@ $cakeDescription = 'Mundo Forestal';
 
 
 
-              if ( strstr((string) $content->Description, $term->Name)) {
-                if ($content->Name !== $term->Name) {
+              if ( strstr((string) $content[0]['Description'], $term->Name)) {
+                if ($content[0]['Name'] !== $term->Name) {
                   //echo "Text found". ' '. strpos($content->Description,$term->Name);
                   //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
                   //echo strpos($content->Description,$term->Name) + strlen($term->Name);
-                  
-                  $content->Description = str_replace($term->Name, '<a href="/Pages/detail/'.$term->IdContent.'">'.$term->Name.'</a>', substr($content->Description, 0, strlen($content->Description)));
+
+                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/Pages/detail/'.$term->IdContent.'">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
                 }
                 }
 
@@ -107,7 +112,7 @@ $cakeDescription = 'Mundo Forestal';
 
 
 
-            echo  '<p>' .  $content->Description . '</p>';
+            echo  '<p>' .  $content[0]['Description'] . '</p>';
         ?>
         </div>
       </div>

@@ -97,7 +97,7 @@ $(document).ready(function() {
                        $.each( data, function( key, content ) {
                         for (var i = 0; i < content.length; i++) {
 
-                            html += '<ul class="liveSearchLu "><a style="text-decoration: none" href=../Pages/detail/'+ content[i]['IdContent']+'>'+ content[i]['Name']+'</a></ul>';
+                            html += '<ul class="liveSearchLu "><a style="text-decoration: none" href=../detail/'+ encodeURI(content[i]['Name'])+'>'+ content[i]['Name']+'</a></ul>';
 
                         }
                         html += '</li>';

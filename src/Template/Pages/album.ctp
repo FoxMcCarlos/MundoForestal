@@ -57,7 +57,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h2><?= $album->Name ?></h2>
+            <h2><?= $album[0]['Name'] ?></h2>
             <span class="subheading"></span>
           </div>
         </div>
@@ -171,6 +171,7 @@ $cakeDescription = 'Mundo Forestal';
           </div>
 
         </form>
+
         <div class="result">
             <span id="show" hidden></span>
         </div>
@@ -187,36 +188,38 @@ $cakeDescription = 'Mundo Forestal';
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <?php foreach($Reso as $img):?>
-
-          <?php if ($img == null) {
-              echo "No Tengo imagen";
-              break;
-          }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
-
-             $link = "/".$img[0]['Resource']."";
-            if ($link) {
-                echo "<a href='#'><img  style=' max-width:100%;
-                max-height:100%; border-radius:2px;'src='/img/tree.jpg'  ></a>";
-              }else {
-                echo "<a href='#'><img  style=' max-width:100%;
-                max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."'  ></a>";
-              }
+           <?php
 
 
+           if (empty($contentA->content->resources[0]['Resource'])) {
+             echo "<img  style=' max-width:100%;
+             max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+           }elseif(!empty($contentA->content->resources[0]['Resource'])) {
+            if (file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource']."" )) {
+               echo urlencode ($contentA->content->resources[0]['Resource']);
+              echo "<img  style=' max-width:100%;
+              max-height:100%; border-radius:2px;'src='/".$contentA->content->resources[0]['Resource']."'  >";
 
-                break;
+
+            }elseif (!file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource'])) {
+              echo "<img  style=' max-width:100%;
+              max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+
+            } {
+
+
+            }
           }
+          //
+
+             ?>
 
 
-          ?>
-
-          <?php endforeach;?>
 
 
           <div class="card-body">
             <h4 class="card-title" style="text-align:center;">
-              <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->IdContent]) ?>
+              <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->content->Name]); ?>
             </h4>
             <h5></h5>
           </div>
