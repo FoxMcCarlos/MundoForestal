@@ -16,7 +16,7 @@ function fill(Value) {
 }
 
 $(document).ready(function() {
-
+      
       $('#show').removeAttr('hidden');
       $('#show').hide();
 

@@ -126,6 +126,9 @@ $cakeDescription = 'Mundo Forestal';
 
 
     }
+    img {
+    pointer-events: none;
+    }
     #show::-webkit-scrollbar
     {
       width: 7px;
@@ -156,11 +159,48 @@ $cakeDescription = 'Mundo Forestal';
         display: block;
         margin-top: -6%;
     }
+    .paginator
+    {
+      margin-top: 10%;
+      display: block;
+      text-align: center;
+      padding-bottom: 5%;
+    }
+    .pagination
+    {
+
+    }
+    .pagination li
+    {
+      margin-right: 2%;
+      text-align: center;
+      width: 100%;
+    }
+    .pagination li a
+    {
+      display:block;
+      text-decoration: none;
+      width: 60%;
+      border-radius: 50px;
+      color: green;
+    }
+    .active a {
+
+      background-color: green !important;
+
+      color: white !important;
+
+}
+
+
+.pagination a:hover:not(.active) {background-color: green; color: white !important;}
+
 
 
 
 
 </style>
+
     <div class="row" style="position:relative;">
 
       <div class="col-lg-4 col-md-6 mb-4">
@@ -196,9 +236,8 @@ $cakeDescription = 'Mundo Forestal';
              max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
            }elseif(!empty($contentA->content->resources[0]['Resource'])) {
             if (file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource']."" )) {
-               echo urlencode ($contentA->content->resources[0]['Resource']);
-              echo "<img  style=' max-width:100%;
-              max-height:100%; border-radius:2px;'src='/".$contentA->content->resources[0]['Resource']."'  >";
+            echo "<img  style=' max-width:100%;max-height:100%; border-radius:2px;'src='/". $contentA->content->resources[0]['Resource']."'  >";
+
 
 
             }elseif (!file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource'])) {
@@ -210,7 +249,7 @@ $cakeDescription = 'Mundo Forestal';
 
             }
           }
-          //
+
 
              ?>
 
@@ -236,19 +275,26 @@ $cakeDescription = 'Mundo Forestal';
   <!-- End content-->
 <div class="container">
 
+<hr>
 
         <div class="row">
-          <div class="col-lg-12 col-md-12">
+          <div class="col-lg-2 col-md-2">
+
+          </div>
+          <div class="col-lg-8 col-md-8">
             <div class="paginator">
                 <ul class="pagination">
-                    <?= $this->Paginator->first('<< ' . __('first')) ?>
-                    <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                    <?= $this->Paginator->first('<< ' . __('')) ?>
+                    <?= $this->Paginator->prev('< ' . __('')) ?>
                     <?= $this->Paginator->numbers() ?>
-                    <?= $this->Paginator->next(__('next') . ' >') ?>
-                    <?= $this->Paginator->last(__('last') . ' >>') ?>
+                    <?= $this->Paginator->next(__('') . ' >') ?>
+                    <?= $this->Paginator->last(__('') . ' >>') ?>
                 </ul>
                 <p><?= $this->Paginator->counter(['format' => __('Página {{page}} de {{pages}}')]) ?></p>
             </div>
+          </div>
+          <div class="col-lg-2 col-md-2">
+
           </div>
         </div>
         </div>
@@ -258,7 +304,7 @@ $cakeDescription = 'Mundo Forestal';
 
         </div>
         </div>
-  <hr>
+  <hr id="separator">
 
   <!-- Footer -->
 
