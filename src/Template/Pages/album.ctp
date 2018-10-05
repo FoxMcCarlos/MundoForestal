@@ -57,7 +57,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h2><?= $album->Name ?></h2>
+            <h2><?= $album[0]['Name'] ?></h2>
             <span class="subheading"></span>
           </div>
         </div>
@@ -66,24 +66,118 @@ $cakeDescription = 'Mundo Forestal';
   </header>
 
 
-
-
   <!-- Main Content -->
-  <div class="container">
+  <div class="container" >
 
 <br>
-    <div class="row">
+
+<style media="screen">
+    #show
+    {
+      position:absolute;
+      z-index: 1000;
+      background-color: white;
+      margin-top: -4%;
+
+    }
+    .liveSearchLu a:hover
+    {
+      color:green;
+    }
+    .liveSearchLu
+    {
+      list-style: none;
+      width: 100%;
+      padding-top: 2%;
+
+
+    }
+    #liveSearchLi
+    {
+      list-style: none;
+      width: 100%;
+      height: 100%;
+      border: none;
+
+
+
+
+
+
+    }
+
+
+    .result
+    {
+      min-height: 200%;
+      max-height: 200%;
+      overflow-y: hidden;
+    }
+    #show
+    {
+      width: 92%;
+      max-height: 400%;
+      overflow-y:scroll;
+      clear: both;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 5px;
+
+
+
+
+    }
+    #show::-webkit-scrollbar
+    {
+      width: 7px;
+
+      background-color: #F5F5F5;
+      border-radius: 20px;
+    }
+    #show::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 20px;
+    }
+
+    #show::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background:green;
+    }
+    #search
+    {
+      border-radius: 20px;
+    }
+    #spin{
+
+      width: 30%;
+      height: auto;
+    }
+    #spinner
+    {
+        display: block;
+        margin-top: -6%;
+    }
+
+
+
+
+</style>
+    <div class="row" style="position:relative;">
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <form class="" action="" method="post">
+        <form class="" action="" method="post" autocomplete="off">
           <div class="input-group mb-3">
                     <input id="search" type="text" class="form-control" placeholder="Buscar en este album" aria-label="Ingrese su búsqueda">
 
           </div>
+
         </form>
-        <div class="" id="show2">
-        <p id="show"></p>
+
+        <div class="result">
+            <span id="show" hidden></span>
         </div>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-2">
+        <span id="spinner" hidden> <img src="../../img/Ripple-1s-200px.gif" alt="" id="spin"> </span>
       </div>
     </div>
 
@@ -94,26 +188,38 @@ $cakeDescription = 'Mundo Forestal';
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <?php foreach($Reso as $img):?>
+           <?php
 
-          <?php if ($img == null) {
-              echo "No Tengo imagen";
-              break;
-          }elseif ($img[0]['IdContent'] == $contentA->IdContent) {
 
-         echo "<a href='#'><img  style=' max-width:100%;
-max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ></a>";
+           if (empty($contentA->content->resources[0]['Resource'])) {
+             echo "<img  style=' max-width:100%;
+             max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+           }elseif(!empty($contentA->content->resources[0]['Resource'])) {
+            if (file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource']."" )) {
+               echo urlencode ($contentA->content->resources[0]['Resource']);
+              echo "<img  style=' max-width:100%;
+              max-height:100%; border-radius:2px;'src='/".$contentA->content->resources[0]['Resource']."'  >";
 
-                break;
+
+            }elseif (!file_exists( WWW_ROOT . "/".$contentA->content->resources[0]['Resource'])) {
+              echo "<img  style=' max-width:100%;
+              max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+
+            } {
+
+
+            }
           }
+          //
+
+             ?>
 
 
-          ?>
 
-          <?php endforeach;?>
+
           <div class="card-body">
             <h4 class="card-title" style="text-align:center;">
-              <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->IdContent]) ?>
+              <?= $this->Html->link(__($contentA->content->Name), ['action' => 'detail', $contentA->content->Name]); ?>
             </h4>
             <h5></h5>
           </div>
@@ -141,7 +247,7 @@ max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ><
                     <?= $this->Paginator->next(__('next') . ' >') ?>
                     <?= $this->Paginator->last(__('last') . ' >>') ?>
                 </ul>
-                <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+                <p><?= $this->Paginator->counter(['format' => __('Página {{page}} de {{pages}}')]) ?></p>
             </div>
           </div>
         </div>
@@ -165,7 +271,7 @@ max-height:100%; border-radius:2px;'src='/".$img[0]['Resource']."' alt='test' ><
   <!-- Custom scripts for this template -->
   <?php
   echo $this->Html->script('jquery.js');
-
+  echo $this->Html->script('jquery-ui.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
   echo $this->Html->script('liveSearch.js');

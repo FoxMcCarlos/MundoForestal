@@ -35,8 +35,8 @@ $cakeDescription = 'Mundo Forestal';
     </title>
     <?php
       echo $this->Html->css('bootstrap.min.css');
-      echo $this->Html->css('clean-blog.min.css');
-      echo $this->Html->css('terminolgoy.css');
+      echo $this->Html->css('clean-blog.css');
+
     ?>
     <!-- Bootstrap core CSS
     <link href="webroot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,16 +66,114 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Main Content -->
   <div class="container">
+    <style media="screen">
+        #show
+        {
+          position:absolute;
+          z-index: 1000;
+          background-color: white;
+          margin-top: -4%;
 
-    <div class="row">
-      <form>
-       <div class="form-group">
-         <label for="email">Busqueda de Terminologia:</label>
-         <input type="email" class="form-control" id="search" placeholder="Busqueda..">
-       </div>
-      </form>
+        }
+        .liveSearchLu a:hover
+        {
+          color:green;
+        }
+        .liveSearchLu
+        {
+          list-style: none;
+          width: 100%;
+          padding-top: 2%;
+
+
+        }
+        #liveSearchLi
+        {
+          list-style: none;
+          width: 100%;
+          height: 100%;
+          border: none;
+
+
+
+
+
+
+        }
+
+
+        .result
+        {
+          min-height: 200%;
+          max-height: 200%;
+          overflow-y: hidden;
+        }
+        #show
+        {
+          width: 92%;
+          max-height: 400%;
+          overflow-y:scroll;
+          clear: both;
+          border: 1px solid rgba(0,0,0,.15);
+          border-radius: 5px;
+
+
+
+
+        }
+        #show::-webkit-scrollbar
+        {
+          width: 7px;
+
+          background-color: #F5F5F5;
+          border-radius: 20px;
+        }
+        #show::-webkit-scrollbar-track {
+        background-color: white;
+        border-radius: 20px;
+        }
+
+        #show::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background:green;
+        }
+        #search
+        {
+          border-radius: 20px;
+        }
+        #spin{
+
+          width: 30%;
+          height: auto;
+        }
+        #spinner
+        {
+            display: block;
+            margin-top: -6%;
+        }
+
+
+
+    </style>
+    <br>
+    <div class="row" style="position:relative;">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <form class="" action="" method="post" autocomplete="off">
+          <div class="input-group mb-3">
+                    <input id="search" type="text" class="form-control" placeholder="Buscar en este album" aria-label="Ingrese su búsqueda">
+
+          </div>
+
+        </form>
+        <div class="result">
+            <span id="show" hidden></span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-2">
+        <span id="spinner" hidden> <img src="../../img/Ripple-1s-200px.gif" alt="" id="spin"> </span>
+      </div>
     </div>
-
 
     <div class="row">
       <div class="card">
@@ -89,7 +187,7 @@ $cakeDescription = 'Mundo Forestal';
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->IdContent]) ?>
+                  <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]) ?>
                 </h4>
                 <h5>Fotos de Bosques</h5>
               </div>
@@ -132,22 +230,15 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- Custom scripts for this template -->
   <?php
-  echo $this->Html->script('jquery.min.js');
+  echo $this->Html->script('jquery.js');
+  echo $this->Html->script('jquery-ui.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
-  echo $this->Html->script('clean-blog.min.js');
+  echo $this->Html->script('liveSearchT.js');
+
   ?>
   <!--<script src="webroot/js/clean-blog.min.js"></script>-->
-  <script>
-$(document).ready(function(){
-  $("#search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myList li").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 
 </body>
 </html>

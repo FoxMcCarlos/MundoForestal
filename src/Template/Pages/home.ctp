@@ -159,7 +159,7 @@ $cakeDescription = 'Mundo Forestal';
             ?>
             <div class="content">
               <h4 class="" style="text-align: center; padding-top:8%; padding-bottom:5%;">
-                <?= $this->Html->link(__($album->Name), ['action' => 'album', $album->IdAlbum]) ?>
+                <?= $this->Html->link(__($album->Name), ['action' => 'album', $album->Name]) ?>
               </h4>
               <h5></h5>
             </div>

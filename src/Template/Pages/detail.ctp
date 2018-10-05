@@ -52,16 +52,21 @@ $cakeDescription = 'Mundo Forestal';
     text-shadow: 4px 4px #33331a;
     color: #eaeae1
   }
+  .term
+  {
+    color: green;
+    
+  }
 </style>
 
   <!-- Page Header -->
-  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$resource[0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
+  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" >
-            <h1 id="titulo"><?= $content->Name ?></h1>
+            <h1 id="titulo"><?= $content[0]['Name'] ?></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -74,10 +79,41 @@ $cakeDescription = 'Mundo Forestal';
     <div class="row">
 
       <div class="col-lg-12 col-md-12 mb-12">
-        <div><h4 style="color:green;  font-style: italic;">Nombre científico: <?= $content->ScientificName ?></h4></div>
-        <div><h4 style="color:red;  font-style: none;">Familia botánica: <?= $content->botanicalfamily->Description ?></h4></div>
+        <?php
+            if ($content[0]['ScientificName'] != "" || $content[0]['ScientificName'] != null) {
+              echo "<div><h4 style='color:green;  font-style: italic;''>Nombre científico:".' '.$content[0]['ScientificName']. "</h4></div>";
+            }
+
+            if ($content[0]['botanicalfamily'] != "" || $content[0]['botanicalfamily'] != null) {
+              echo "<div><h4 style='color:red;  font-style: none;''>Familia botánica:" .' '.$content[0]['botanicalfamily']['Description']."</h4></div>";
+            }
+         ?>
+
+
         <div class"panel panel-info" align="justify">
-          <p><?= $content->Description ?></p>
+          <?php
+
+              foreach ($terms as $term) {
+
+
+
+              if ( strstr((string) $content[0]['Description'], $term->Name)) {
+                if ($content[0]['Name'] !== $term->Name) {
+                  //echo "Text found". ' '. strpos($content->Description,$term->Name);
+                  //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
+                  //echo strpos($content->Description,$term->Name) + strlen($term->Name);
+
+                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/Pages/detail/'.$term->IdContent.'">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
+                }
+                }
+
+
+              }
+
+
+
+            echo  '<p>' .  $content[0]['Description'] . '</p>';
+        ?>
         </div>
       </div>
 

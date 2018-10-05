@@ -35,7 +35,8 @@ class ContentsTable extends Table
         $this->setPrimaryKey('IdContent');
         $this->belongsTo('Categories')->setForeignKey('IdCategory');
         $this->belongsTo('Botanicalfamilies')->setForeignKey('IdBotanicalFamily');
-        
+        $this->HasMany('Resources')->setForeignKey(['IdContent']);
+
 
     }
 

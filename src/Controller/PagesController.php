@@ -120,22 +120,13 @@ class PagesController extends AppController
         $this->set('_serialize', ['contents']);
 
     }
-    public function album($id = null)
+    public function album($name = null)
     {
-      $album = $this->Albums->get($id, [
-          'contain' => []
-      ]);
-      $x = 0;
-      $contentsByAlbum = $this->paginate($this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $id),'contain' => ['Contents'])),  ['limit' => 12]);
-      foreach ($contentsByAlbum as $content) {
-        $Reso[] = $this->Resources->find('all',['conditions' =>['Resources.IdContent' => $content->IdContent]])->toArray();
-        $x+=1;
 
-
-
-
-      }
-
+      $name = str_replace("%20"," ",$name);
+      $album = $this->Albums->find('all', array('conditions' => array('Albums.Name' => $name)))->toArray();
+      $id = $album[0]['IdAlbum'];
+      $contentsByAlbum = $this->paginate($this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $id),'contain' => ['Contents', 'Contents' => 'Resources'])),  ['limit' => 12]);
       $this->set(compact('Reso'));
       $this->set(compact('album'));
       $this->set(compact('data'));
@@ -153,8 +144,17 @@ class PagesController extends AppController
       $s = $_POST['search'];
       $session = $this->request->session();
       $album = $session->read('album');
-      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents']));
-      $data->select(['Contents.idContent','Contents.Name']);
+      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents', 'Contents' => 'Resources']));
+      //$data->select(['Contents.idContent','Contents.Name','Contentalbums.Contents.Resources'])->contain(['Contents' => 'Resources']);
+      $this->set(compact('data'));
+      $this->set('_serialize', ['data']);
+      $this->RequestHandler->renderAs($this, 'json');
+    }
+
+    public function buscarT($search = null)
+    {
+      $s = $_POST['search'];
+      $data = $this->Contents->find('all', array('conditions' => array('Contents.IdCategory' => 2, "AND" => array("Contents.Name LIKE" => "$s%"))));
       $this->set(compact('data'));
       $this->set('_serialize', ['data']);
       $this->RequestHandler->renderAs($this, 'json');
@@ -168,24 +168,20 @@ class PagesController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function detail($id = null)
+    public function detail($name = null)
     {
+        $name = str_replace("%20"," ",$name);
 
-        $content = $this->Contents->get($id, [
-            'contain' => ['Botanicalfamilies']
-        ]);
-        $resource = $this->Resources->find('all', [
-            'conditions' => ['IdContent' => $content->IdContent]
-        ])->toArray();
-
+        $content = $this->Contents->find('all', array('conditions' => array('Contents.Name' => $name),'contain' => ['Botanicalfamilies',  'Resources']))->toArray();
+        $terms = $this->Contents->find('all', array('conditions' => array('Contents.IdCategory' => 2)));
+        $this->set('terms', $terms);
         $this->set('content', $content);
-        $this->set('resource', $resource);
         $this->set('_serialize', ['content','resource']);
 
     }
 
 
-    public function terminology($id = null)
+    public function terminology()
     {
 
 
