@@ -60,7 +60,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/especies', ['controller' => 'Pages', 'action' => 'especies', 'especies']);
     $routes->connect('/detail/*', ['controller' => 'Pages', 'action' => 'detail']);
     $routes->connect('/album/*', ['controller' => 'Pages', 'action' => 'album']);
-
+    $routes->connect('/nosotros', ['controller' => 'Pages', 'action' => 'nosotros',"nosotros"]);
+    $routes->connect('/contacto', ['controller' => 'Pages', 'action' => 'contacto',"contacto"]);
     /**
      * Connect catchall routes for all controllers.
      *

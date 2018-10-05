@@ -195,6 +195,14 @@ class PagesController extends AppController
         $this->set('_serialize', ['contents']);
 
     }
-
-
-}
+    public function nosotros()
+    {
+      echo "nosotros";
+      exit();
+    }
+    public function contacto()
+    {
+      echo "contacto";
+      exit();
+    }
+  }
