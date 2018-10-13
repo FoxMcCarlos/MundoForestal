@@ -1,52 +1,11 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Core\Plugin;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Network\Exception\NotFoundException;
-
-$this->layout = false;
-
-
-$cakeDescription = 'Mundo Forestal';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>
-    </title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.css" rel="stylesheet">
-
-</head>
-
-<body>
 
   <!-- Navigation -->
 
-<?php echo $this->render("../Commons/_navbar"); ?>
+
+
+<?php
+  $this->layout = 'main';
+  ?>
     <style media="screen">
         .black, .hover-black:hover {
 
@@ -63,30 +22,7 @@ $cakeDescription = 'Mundo Forestal';
 
     </style>
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-           <div class="site-heading; " >
-            <div class="site-heading" >
 
-
-
-              <div style="white-space:nowrap; "   >
-                    <span >
-                        <h2>Bienvenidos</h2> <br>
-                            <span >
-                                Desde Costa Rica, con mucho orgullo para el resto del mundo
-                          </span>
-                    </span>
-              </div>
-
-            </div>
-         </div>
-
-      </div>
-    </div>
-  </header>
 
   <!-- Main Content -->
 
@@ -183,12 +119,3 @@ $cakeDescription = 'Mundo Forestal';
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/popper/popper.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-<!--   <script src="js/clean-blog.min.js"></script>-->
-
-</body>
-</html>
