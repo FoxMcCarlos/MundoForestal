@@ -22,7 +22,7 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = false;
 
 
-
+?>
 
 <!DOCTYPE html>
 <html>
@@ -47,21 +47,21 @@ $this->layout = false;
 
   <!-- Navigation -->
 <style media="screen">
-  #E404{
-    size: 600px
+  #titulo{
+    text-shadow: 4px 4px #33331a;
     color: #eaeae1
   }
 </style>
 
   <!-- Page Header -->
-<header>
+<header class='masthead' style="background-image: url('img/tree.jpg'); >"
 
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="Error">
-            <h1 id="E404">404</h1>
-            <span class="subheading"> Pagina no Encontrada</span>
+          <div class="site-heading" >
+            <h1 id="titulo">Quienes Somos:</h1>
+            <span class="subheading"></span>
           </div>
         </div>
       </div>

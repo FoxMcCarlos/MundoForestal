@@ -1,5 +1,6 @@
 <?php
 /**
+
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
@@ -22,16 +23,15 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = false;
 
 
-
-$cakeDescription = 'Mundo Forestal';
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>
+            Contacto
     </title>
     <?php
       echo $this->Html->css('bootstrap.min.css');
@@ -55,7 +55,7 @@ $cakeDescription = 'Mundo Forestal';
 </style>
 
   <!-- Page Header -->
-<header class='masthead' style="background-image: url('img/tree.jpg'); >"
+<header class='masthead' style="background-image: url('img/tree.jpg'); ">
 
     <div class="container">
       <div class="row">
@@ -74,10 +74,13 @@ $cakeDescription = 'Mundo Forestal';
     <div class="row" align="justify">
 
       <div class="col-lg-12 col-md-12 mb-12">
-        <div align="center"><h5 style="color:black; align:center; font-style: italic;"> ¡Hola!  Somos Yamileth Sánchez Vargas y Manuel Víquez Carazo
-<br/>Fundadores y creadores de la empresa familiar
-<br/>MundoForestal.com S.A. </h5></div>
-<div><p  style="color:black; font-style: italic;"> MundoForestal.com es una empresa privada ubicada en la ciudad de San José, Costa Rica, absolutamente independiente; creada en junio del año 2000 como respuesta a la demanda de una amplia población de empresarios productores forestales y público en general por satisfacer sus necesidades de información comercial y arbórea. Con el transcurrir de los años hemos logrado posicionarnos como una fuente confiable de información y un respaldo, especialmente para la población urbana, la cual posee grandes necesidades de espacios verdes y por ende del conocimiento que los mismos requieren para su establecimiento y mayor aprovechamiento, así como de los que se dedican a ser finqueros de fin de semana.
+        <div align="center">
+          <h5 style="color:black; align:center; font-style: italic;"> ¡Hola!  Somos Yamileth Sánchez Vargas y Manuel Víquez Carazo
+          <br/>Fundadores y creadores de la empresa familiar
+          <br/>MundoForestal.com S.A. </h5></div>
+       
+<div>
+<div><p style="color:black; font-style: italic;"> MundoForestal.com es una empresa privada ubicada en la ciudad de San José, Costa Rica, absolutamente independiente; creada en junio del año 2000 como respuesta a la demanda de una amplia población de empresarios productores forestales y público en general por satisfacer sus necesidades de información comercial y arbórea. Con el transcurrir de los años hemos logrado posicionarnos como una fuente confiable de información y un respaldo, especialmente para la población urbana, la cual posee grandes necesidades de espacios verdes y por ende del conocimiento que los mismos requieren para su establecimiento y mayor aprovechamiento, así como de los que se dedican a ser finqueros de fin de semana.
 <br/>
 <br/>En el año 2001 iniciamos el Programa de Educación Forestal con el desarrollo de las Misiones, las cuales generaron un proceso de investigación y recopilación de información sobre las especies forestales presentes en Costa Rica. Unido a ellas se han publicado en forma permanente cientos de boletines informativos, los cuales se envían por medio del correo electrónico a miles de personas en muchos países del mundo, complementándolos con nuestro perfil y página en Facebook.
 <br/>
