@@ -54,7 +54,7 @@ $this->layout = false;
 </style>
 
   <!-- Page Header -->
-<header class='masthead' style="background-image: url('img/tree.jpg'); >"
+<header class='masthead' class="col-lg-12 col-md-12 mb-12" >
 
     <div class="container">
       <div class="row">

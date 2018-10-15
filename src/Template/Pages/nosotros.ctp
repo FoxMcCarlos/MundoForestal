@@ -55,7 +55,7 @@ $this->layout = false;
 </style>
 
   <!-- Page Header -->
-<header class='masthead' style="background-image: url('img/tree.jpg'); ">
+<header  class="masthead" style="background-image: url('/img/tree.jpg'); -webkit-filter: grayscale(50%); ">
 
     <div class="container">
       <div class="row">
@@ -75,11 +75,14 @@ $this->layout = false;
 
       <div class="col-lg-12 col-md-12 mb-12">
         <div align="center">
-          <h5 style="color:black; align:center; font-style: italic;"> ¡Hola!  Somos Yamileth Sánchez Vargas y Manuel Víquez Carazo
+          <h5 style="color:black; align:center; font-style: italic; padding-top:10%"> ¡Hola!  Somos Yamileth Sánchez Vargas y Manuel Víquez Carazo
           <br/>Fundadores y creadores de la empresa familiar
           <br/>MundoForestal.com S.A. </h5></div>
-       
-<div>
+         </div>
+         <div class="col-lg-12 col-md-12 mb-12" align="center">
+           <img src='/img/nosotros.jpg' alt="nosotros">
+         </div>
+
 <div><p style="color:black; font-style: italic;"> MundoForestal.com es una empresa privada ubicada en la ciudad de San José, Costa Rica, absolutamente independiente; creada en junio del año 2000 como respuesta a la demanda de una amplia población de empresarios productores forestales y público en general por satisfacer sus necesidades de información comercial y arbórea. Con el transcurrir de los años hemos logrado posicionarnos como una fuente confiable de información y un respaldo, especialmente para la población urbana, la cual posee grandes necesidades de espacios verdes y por ende del conocimiento que los mismos requieren para su establecimiento y mayor aprovechamiento, así como de los que se dedican a ser finqueros de fin de semana.
 <br/>
 <br/>En el año 2001 iniciamos el Programa de Educación Forestal con el desarrollo de las Misiones, las cuales generaron un proceso de investigación y recopilación de información sobre las especies forestales presentes en Costa Rica. Unido a ellas se han publicado en forma permanente cientos de boletines informativos, los cuales se envían por medio del correo electrónico a miles de personas en muchos países del mundo, complementándolos con nuestro perfil y página en Facebook.
@@ -87,20 +90,17 @@ $this->layout = false;
 <br/>Utilizamos todos los medios disponibles para lograr llevar el programa a más y más personas cada día. Posteriormente se inició el Consultorio del Dr. Árbol, el cual es un servicio gratuito de asesoría en línea sobre todo lo relacionado al conocimiento, cuidado y manejo de las especies forestales. Por medio del mismo se ofrecen recomendaciones sobre las mejores especies a plantar en determinados sitios, dependiendo de las características del lugar y de los objetivos, así mismo se dan pautas sobre problemas de plagas y enfermedades que afectan a los árboles y en términos generales sobre el manejo y cuidado de los árboles.
 <br/>
 <br/>MundoForestal.com se concentra  en la continuidad del Programa de Educación Forestal por medio de la atención de consultas personales, telefónicas, por correo electrónico y facebook, asesorías y la generación de información sobre las distintas especies  forestales de Costa Rica, así como  de la alimentación del sitio web, el cual se ha constituido en una fuente de consulta de primer orden para los amantes de los árboles tanto dentro como fuera de Costa Rica.   </p></div>
-        <div align="center"><h4 style="color:green; align:center;  font-style: bold;">Mision </h4></div>
+        <div class="col-lg-12 col-md-12 mb-12" ><h4 style="color:green; align:center;  font-style: bold;">Mision </h4></div>
         <div align="justify"><p style="color:black; align:center;  font-style: italic;"> Utilizar todos los medios posibles para crear la conciencia social de que el conocimiento, conservación, reproducción, cultivo y aprovechamiento máximo de todas las especies de árboles, es un   asunto de enormes implicaciones del que dependen la estabilidad planetaria y el desarrollo y supervivencia de los seres humanos y de cientos de miles de especies.   </p></div>
-        <div align="center"><h4 style="color:red;  font-style: none;">Nuestro Lema:</h4></div>
-        <br/><div align="center"><h6 style="color:black; align:center;  font-style: italic;">  "No podemos cuidar algo si no lo conocemos..."</h6></div>
+        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6"><h4 style="color:red;  font-style: none;">Nuestro Lema:</h4></div><br>
+        <div align="center"><h6 style="color:black; align:center;  font-style: italic;">  "No podemos cuidar algo si no lo conocemos..."</h6></div>
         <div align="justify"><p style="color:black; align:center;  font-style: italic;">"Porque el más glorioso invento de la Humanidad, no es capaz de ofrecer el más simple de los beneficios que brinda un árbol..."  (Manuel Víquez) </p></div>
         <div class"panel panel-info" align="justify">
 
-        </div>
-      </div>
 
-
-    </div>
   </div>
-
+ </div>
+</div>
   <hr>
 
   <!-- Footer -->
