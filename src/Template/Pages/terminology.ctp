@@ -29,6 +29,7 @@ $cakeDescription = 'Mundo Forestal';
 <html>
 <head>
     <?= $this->Html->charset() ?>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?= $cakeDescription ?>
@@ -151,6 +152,24 @@ $cakeDescription = 'Mundo Forestal';
             display: block;
             margin-top: -6%;
         }
+        .letter
+        {
+          color: green;
+        }
+        html {
+          scroll-behavior: smooth;
+      }
+
+      #termsC
+      {
+        overflow-y: scroll;
+
+      }
+      #terms
+      {
+        height: 75%;
+      }
+
 
 
 
@@ -174,22 +193,82 @@ $cakeDescription = 'Mundo Forestal';
         <span id="spinner" hidden> <img src="../../img/Ripple-1s-200px.gif" alt="" id="spin"> </span>
       </div>
     </div>
-
     <div class="row">
-      <div class="card">
+      <div class="col-lg-3 col-md-3 mb-3">
+
+      </div>
+      <div class="col-lg-6 col-md-6 mb-6" id="abc">
+        <a href="#lA" class="btns">A</a return false> <a href="#lB" class="btns">B</a> <a href="#lC" class="btns">C</a> <a href="#lD" class="btns">D</a> <a href="#lE" class="btns">E</a>
+        <a href="#lF" class="btns">F</a> <a href="#lG" class="btns">G</a> <a href="#lH" class="btns">H</a> <a href="#lI" class="btns">I</a> <a href="#lJ" class="btns">J</a>
+        <a href="#lK" class="btns">K</a> <a href="#lL" class="btns">L</a> <a href="#lM" class="btns">M</a> <a href="#lN" class="btns">N</a> <a href="#lÑ" class="btns">Ñ</a>
+        <a href="#lO" class="btns">O</a> <a href="#lP" class="btns">P</a> <a href="#lQ" class="btns">Q</a> <a href="#lR" class="btns">R</a> <a href="#lS" class="btns">S</a>
+        <a href="#lT" class="btns">T</a> <a href="#lU" class="btns">U</a> <a href="#lV" class="btns">V</a> <a href="#lW" class="btns">W</a> <a href="#lX" class="btns">X</a>
+        <a href="#lY" class="btns">Y</a> <a href="#lZ" class="btns">Z</a>
+      </div>
+
+       <div class="col-lg-3 col-md-3 mb-3">
+
+       </div>
+    </div>
+    <div class="row" id="termsC">
+      <div class="" id="terms">
 
         <ul class="list-inline" id="myList">
 
-          <?php foreach ($contents as $content):?>
+          <?php
+          $letter = null;
+          $actual = null;
+          foreach ($contents as $content):
+            $actual =  strtoupper($content->Name);
+            if (    preg_match_all("/(^á)+/",$actual) || preg_match_all("/(^Á)+/",$actual)
+                 || preg_match_all("/(^é)+/",$actual) || preg_match_all("/(^É)+/",$actual)
+                 || preg_match_all("/(^í)+/",$actual) || preg_match_all("/(^Í)+/",$actual)
+                 || preg_match_all("/(^ó)+/",$actual) || preg_match_all("/(^Ó)+/",$actual)
+                 || preg_match_all("/(^ú)+/",$actual) || preg_match_all("/(^Ú)+/",$actual)
+                 || preg_match_all("/(^ü)+/",$actual) || preg_match_all("/(^Ü)+/",$actual)
+
+               )
+            {
+              $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name));
+               if ($letter != $actual[1]) {
+
+
+              $letter = $actual[1];
+              echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
+
+                }
+
+            }elseif (preg_match_all("/^\ñ+/",$actual)  || preg_match_all("/^\Ñ+/",$actual)) {
+              if ($letter != substr($actual,0,2)) {
+
+                $letter = substr($actual,0,2);
+                echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
+              }
+            }
+            else{
+                  $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name[0]));
+                   if ($letter != $actual[0]) {
+
+                     $letter = $actual[0];
+
+                     echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
+                   }
+                 }
+
+
+
+            ?>
+
+            <hr>
 
           <li class="list-inline-item">
-            <div class="card" style="width: 17rem;">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card" style="width: 60rem;">
+
               <div class="card-body">
                 <h4 class="card-title">
                   <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]) ?>
                 </h4>
-                <h5>Fotos de Bosques</h5>
+                <h5><i><?= $content->Description ?></i></h5>
               </div>
             </div>
           </li>
@@ -204,16 +283,7 @@ $cakeDescription = 'Mundo Forestal';
 
   <!-- End content-->
 
-        <div class="paginator" style="margin-left:430px;">
-            <ul class="pagination">
-                <?= $this->Paginator->first('<< ' . __('first')) ?>
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-                <?= $this->Paginator->last(__('last') . ' >>') ?>
-            </ul>
-            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-        </div>
+
       </div>
 
         </div>
@@ -234,6 +304,7 @@ $cakeDescription = 'Mundo Forestal';
   echo $this->Html->script('jquery-ui.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
+  echo $this->Html->script('searchByLetter.js');
   echo $this->Html->script('liveSearchT.js');
 
   ?>

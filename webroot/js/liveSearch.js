@@ -16,7 +16,7 @@ function fill(Value) {
 }
 
 $(document).ready(function() {
-      
+
       $('#show').removeAttr('hidden');
       $('#show').hide();
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
                //Data will be sent to "ajax.php".
 
-               url: "../Pages/buscar",
+               url: "/buscar",
 
                //Data, that will be sent to "ajax.php".
                datatype:JSON,

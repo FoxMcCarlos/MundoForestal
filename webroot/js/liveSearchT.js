@@ -54,7 +54,7 @@ $(document).ready(function() {
 
                //Data will be sent to "ajax.php".
 
-               url: "../Pages/buscarT",
+               url: "/buscarT",
 
                //Data, that will be sent to "ajax.php".
                datatype:JSON,

@@ -103,7 +103,7 @@ $cakeDescription = 'Mundo Forestal';
                   //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
                   //echo strpos($content->Description,$term->Name) + strlen($term->Name);
 
-                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/Pages/detail/'.$term->Name.'">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
+                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/detalles/'.$term->Name.'">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
                 }
                 }
 

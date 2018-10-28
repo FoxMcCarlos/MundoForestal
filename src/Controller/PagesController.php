@@ -185,7 +185,8 @@ class PagesController extends AppController
     {
 
 
-        $contents = $this->paginate($this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2))),  ['limit' => 12]);
+        $contents = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2)))->order(['Name' => 'ASC']);
+        //array('order'=>array('FIELD(Name)asc')
 
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
