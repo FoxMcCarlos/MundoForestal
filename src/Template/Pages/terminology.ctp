@@ -46,7 +46,7 @@ $cakeDescription = 'Mundo Forestal';
     -->
 </head>
 
-<body>
+<body onload="myFunction()">
 
   <!-- Navigation -->
 
@@ -76,11 +76,11 @@ $cakeDescription = 'Mundo Forestal';
           margin-top: -4%;
 
         }
-        .liveSearchLu a:hover
+        .liveSearchLi a:hover
         {
           color:green;
         }
-        .liveSearchLu
+        .liveSearchLi
         {
           list-style: none;
           width: 100%;
@@ -88,7 +88,7 @@ $cakeDescription = 'Mundo Forestal';
 
 
         }
-        #liveSearchLi
+        #liveSearchLu
         {
           list-style: none;
           width: 100%;
@@ -163,12 +163,50 @@ $cakeDescription = 'Mundo Forestal';
       #termsC
       {
         overflow-y: scroll;
+        height:500px;
+
+
+        scroll-behavior: smooth;
 
       }
       #terms
       {
         height: 75%;
+
       }
+
+
+      #termsC::-webkit-scrollbar
+      {
+        width: 7px;
+        background-color: #F5F5F5;
+
+      }
+      #termsC::-webkit-scrollbar-track {
+
+      background-color: white;
+
+      }
+
+      #termsC::-webkit-scrollbar-thumb {
+
+
+          background:green;
+      }
+      .card
+      {
+        border: none;
+      }
+      #abc
+      {
+        text-align: center;
+        margin-bottom: 5%;
+      }
+      .items
+      {
+        text-align: justify;
+      }
+
 
 
 
@@ -180,7 +218,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="col-lg-4 col-md-6 mb-4">
         <form class="" action="" method="post" autocomplete="off">
           <div class="input-group mb-3">
-                    <input id="search" type="text" class="form-control" placeholder="Buscar en este album" aria-label="Ingrese su búsqueda">
+                    <input id="search" type="text" name="search" class="form-control" placeholder="Ingrese su búsqueda" aria-label="Ingrese su búsqueda">
 
           </div>
 
@@ -197,7 +235,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="col-lg-3 col-md-3 mb-3">
 
       </div>
-      <div class="col-lg-6 col-md-6 mb-6" id="abc">
+      <div class="col-lg-6 col-md-6 mb-6 col-xs-4" id="abc">
         <a href="#lA" class="btns">A</a return false> <a href="#lB" class="btns">B</a> <a href="#lC" class="btns">C</a> <a href="#lD" class="btns">D</a> <a href="#lE" class="btns">E</a>
         <a href="#lF" class="btns">F</a> <a href="#lG" class="btns">G</a> <a href="#lH" class="btns">H</a> <a href="#lI" class="btns">I</a> <a href="#lJ" class="btns">J</a>
         <a href="#lK" class="btns">K</a> <a href="#lL" class="btns">L</a> <a href="#lM" class="btns">M</a> <a href="#lN" class="btns">N</a> <a href="#lÑ" class="btns">Ñ</a>
@@ -210,72 +248,12 @@ $cakeDescription = 'Mundo Forestal';
 
        </div>
     </div>
-    <div class="row" id="termsC">
-      <div class="" id="terms">
+    <div class="row">
 
-        <ul class="list-inline" id="myList">
-
-          <?php
-          $letter = null;
-          $actual = null;
-          foreach ($contents as $content):
-            $actual =  strtoupper($content->Name);
-            if (    preg_match_all("/(^á)+/",$actual) || preg_match_all("/(^Á)+/",$actual)
-                 || preg_match_all("/(^é)+/",$actual) || preg_match_all("/(^É)+/",$actual)
-                 || preg_match_all("/(^í)+/",$actual) || preg_match_all("/(^Í)+/",$actual)
-                 || preg_match_all("/(^ó)+/",$actual) || preg_match_all("/(^Ó)+/",$actual)
-                 || preg_match_all("/(^ú)+/",$actual) || preg_match_all("/(^Ú)+/",$actual)
-                 || preg_match_all("/(^ü)+/",$actual) || preg_match_all("/(^Ü)+/",$actual)
-
-               )
-            {
-              $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name));
-               if ($letter != $actual[1]) {
-
-
-              $letter = $actual[1];
-              echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
-
-                }
-
-            }elseif (preg_match_all("/^\ñ+/",$actual)  || preg_match_all("/^\Ñ+/",$actual)) {
-              if ($letter != substr($actual,0,2)) {
-
-                $letter = substr($actual,0,2);
-                echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
-              }
-            }
-            else{
-                  $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name[0]));
-                   if ($letter != $actual[0]) {
-
-                     $letter = $actual[0];
-
-                     echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
-                   }
-                 }
-
-
-
-            ?>
-
-            <hr>
-
-          <li class="list-inline-item">
-            <div class="card" style="width: 60rem;">
-
-              <div class="card-body">
-                <h4 class="card-title">
-                  <?= $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]) ?>
-                </h4>
-                <h5><i><?= $content->Description ?></i></h5>
-              </div>
-            </div>
-          </li>
-
-          <?php  endforeach;?>
-
-        </ul>
+      <div class="col-lg-12 col-md-12 mb-12" id="termsC">
+        <div class="terms">
+            <?php include '_terms.php'; ?>
+        </div>
       </div>
 
     </div>
@@ -311,5 +289,5 @@ $cakeDescription = 'Mundo Forestal';
   <!--<script src="webroot/js/clean-blog.min.js"></script>-->
 
 
-</body>
+</body >
 </html>
