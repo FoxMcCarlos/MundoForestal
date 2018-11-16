@@ -1,11 +1,39 @@
 
   <!-- Navigation -->
 
+  <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+           <div class="site-heading; " >
+            <div class="site-heading" >
 
+
+
+              <div style="white-space:nowrap; "   >
+                    <span >
+                        <h2>Bienvenidos</h2> <br>
+                            <span >
+                                Desde Costa Rica, con mucho orgullo para el resto del mundo
+                          </span>
+                    </span>
+              </div>
+
+            </div>
+         </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div class="container clearfix">
 
 <?php
   $this->layout = 'main';
-  ?>
+?>
     <style media="screen">
         .black, .hover-black:hover {
 
@@ -112,8 +140,9 @@
 
     </div>
   </div>
-
   <hr>
+</div>
+
 
   <!-- Footer -->
 
