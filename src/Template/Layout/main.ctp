@@ -76,68 +76,16 @@ $cakeDescription = 'Mundo Forestal';
   </div>
 </nav>
 
-<header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-         <div class="site-heading; " >
-          <div class="site-heading" >
 
-
-
-            <div style="white-space:nowrap; "   >
-                  <span >
-                      <h2>Bienvenidos</h2> <br>
-                          <span >
-                              Desde Costa Rica, con mucho orgullo para el resto del mundo
-                        </span>
-                  </span>
-            </div>
-
-          </div>
-       </div>
-
-    </div>
-  </div>
-</header>
-
-
-
-
-<div class="container clearfix">
     <?= $this->fetch('content') ?>
 
 <!-- Footer -->
 <footer>
+    
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item">
-            <a href="#">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
+
         <p class="copyright text-muted">Copyright &copy; Mundo Forestal 2017</p>
       </div>
     </div>
