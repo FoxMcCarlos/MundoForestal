@@ -5,107 +5,280 @@
   <?php
   $letter = null;
   $actual = null;
+  $contentV = null;
+  $first = 0;
+  $last =  count($contents->toArray()) -1;
   foreach ($contents as $content):
-    $actual =  strtoupper($content->Name);
-    if (    preg_match_all("/(^á)+/",$actual) || preg_match_all("/(^Á)+/",$actual)
-         || preg_match_all("/(^é)+/",$actual) || preg_match_all("/(^É)+/",$actual)
-         || preg_match_all("/(^í)+/",$actual) || preg_match_all("/(^Í)+/",$actual)
-         || preg_match_all("/(^ó)+/",$actual) || preg_match_all("/(^Ó)+/",$actual)
-         || preg_match_all("/(^ú)+/",$actual) || preg_match_all("/(^Ú)+/",$actual)
-         || preg_match_all("/(^ü)+/",$actual) || preg_match_all("/(^Ü)+/",$actual)
-
-       )
-    {
-      $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name));
-       if ($letter != $actual[1]) {
 
 
-      $letter = $actual[1];
-      echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-      echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-      <div class='card-body'><h4 class='card-title'>";
-      echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-      echo "</h4>";
-      echo "<h5><i> $content->Description </i></h5>";
-      echo "</div>";
-      echo "</div>";
-      echo "<hr width = 100%>";
-      echo "</li>";
+    if (preg_match_all('/(\~)+/i',iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[0])) {
+      $actual = mb_strtoupper(substr($content->Name,0,2));
+      if ($first == 0) {
+        $first = $first + 1;
+        if ($letter !== $actual) {
 
+          $letter = $actual;
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
 
-    }else {
-      echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-      <div class='card-body'><h4 class='card-title'>";
-      echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-      echo "</h4>";
-      echo "<h5><i> $content->Description </i></h5>";
-      echo "</div>";
-      echo "</div>";
-      echo "<hr width = 100%>";
-      echo "</li>";
-      echo "</section>";
-    }
+        }else {
+          $first = $first + 1;
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+        }
+      }elseif ($first === $last) {
+        if ($letter !== $actual) {
 
-    }elseif (preg_match_all("/^\ñ+/",$actual)  || preg_match_all("/^\Ñ+/",$actual)) {
-      $actual = mb_strtoupper($content->Name);
-      if ($letter != substr($actual,0,2)) {
+          $letter = $actual;
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+          echo "/section";
 
-        $letter =  substr($actual,0,2);
-        echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-        echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-        <div class='card-body'><h4 class='card-title'>";
-        echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-        echo "</h4>";
-        echo "<h5><i> $content->Description </i></h5>";
-        echo "</div>";
-        echo "</div>";
-        echo "<hr width = 100%>";
-        echo "</li>";
-
+        }else {
+          $first = $first + 1;
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+          echo "</section>";
+        }
       }else {
-        echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-        <div class='card-body'><h4 class='card-title'>";
-        echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-        echo "</h4>";
-        echo "<h5><i> $content->Description </i></h5>";
-        echo "</div>";
-        echo "</div>";
-        echo "<hr width = 100%>";
-        echo "</li>";
-        echo "</section>";
+        $first = $first + 1;
+        if ($letter !== $actual) {
+
+          $letter = $actual;
+          echo "</section>";
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+
+        }else {
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+        }
       }
+
+      //preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0)
+    }elseif (preg_match_all('/(\')+/i',iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[0])) {
+      $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[1]);
+      if ($first == 0) {
+        $first = $first + 1;
+        if ($letter !== $actual) {
+
+          $letter = $actual;
+
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+
+        }else {
+          $first = $first + 1;
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+        }
+      }elseif ($first === $last) {
+        if ($letter !== $actual) {
+
+          $letter = $actual;
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+          echo "/section";
+
+        }else {
+
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+          echo "</section>";
+        }
+      }else {
+
+        if ($letter !== $actual) {
+
+          $letter = $actual;
+          echo "</section>";
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+
+        }else {
+          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          <div class='card-body'><h4 class='card-title'>";
+          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "</h4>";
+          echo "<h5><i> $content->Description </i></h5>";
+          echo "</div>";
+          echo "</div>";
+          echo "<hr width = 100%>";
+          echo "</li>";
+        }
+      }
+    }else {
+        $actual = strtoupper($content->Name[0]);
+        if ($first == 0) {
+          $first = $first + 1;
+          if ($letter !== $actual) {
+
+            $letter = $actual;
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+
+          }else {
+            $first = $first + 1;
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+          }
+        }elseif ($first === $last) {
+          if ($letter !== $actual) {
+
+
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+            echo "/section";
+
+          }else {
+
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+            echo "</section>";
+          }
+        }else {
+          $first = $first + 1;
+          if ($letter !== $actual) {
+
+            $letter = $actual;
+            echo "</section>";
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+
+          }else {
+            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            <div class='card-body'><h4 class='card-title'>";
+            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "</h4>";
+            echo "<h5><i> $content->Description </i></h5>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr width = 100%>";
+            echo "</li>";
+          }
+        }
     }
-    else{
-          $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name[0]));
-           if ($letter != $actual[0]) {
-
-             $letter = $actual[0];
-
-             echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1></section>";
-             echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-             <div class='card-body'><h4 class='card-title'>";
-             echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-             echo "</h4>";
-             echo "<h5><i> $content->Description </i></h5>";
-             echo "</div>";
-             echo "</div>";
-             echo "<hr width = 100%>";
-             echo "</li>";
-
-           }else {
-             echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card' >
-             <div class='card-body'><h4 class='card-title'>";
-             echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-             echo "</h4>";
-             echo "<h5><i> $content->Description </i></h5>";
-             echo "</div>";
-             echo "</div>";
-             echo "<hr width = 100%>";
-             echo "</li>";
-             echo "</section>";
-           }
-         }
-
 
 
     ?>
