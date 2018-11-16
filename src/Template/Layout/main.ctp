@@ -60,16 +60,16 @@ $cakeDescription = 'Mundo Forestal';
           <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">Quienes Somos</a>
+          <a class="nav-link" href="nosotros">Quienes Somos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="post.html">Agricultura</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Consultorio del Dr.Arbol</a>
+          <a class="nav-link" href="mantenimiento">Consultorio del Dr.Arbol</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contacto</a>
+          <a class="nav-link" href="nosotros#contacto">Contacto</a>
         </li>
       </ul>
     </div>
@@ -81,7 +81,7 @@ $cakeDescription = 'Mundo Forestal';
 
 <!-- Footer -->
 <footer>
-    
+
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
