@@ -1,4 +1,6 @@
-
+<?php
+  $this->layout = 'main';
+?>
   <!-- Navigation -->
 
   <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
@@ -31,9 +33,7 @@
 
 <div class="container clearfix">
 
-<?php
-  $this->layout = 'main';
-?>
+
     <style media="screen">
         .black, .hover-black:hover {
 

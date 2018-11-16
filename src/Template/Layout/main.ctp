@@ -60,7 +60,7 @@ $cakeDescription = 'Mundo Forestal';
           <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros">Quienes Somos</a>
+          <a class="nav-link" href="nosotros">Quiénes Somos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="post.html">Agricultura</a>
