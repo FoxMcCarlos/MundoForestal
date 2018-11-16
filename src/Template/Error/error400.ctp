@@ -28,7 +28,7 @@
 </style>
 <div class="container" style="margin-top:8%; margin-bottom:10%;">
   <div class="row">
-    <div class="col" style="text-align:center; font-size:150px; color:green;">
+    <div class="col " style="text-align:center; font-size:150px; color:green;">
       404
     </div>
     </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="col-lg-6 col-md-6 col-s-3 col-xs-6" style="padding-top:5%; text-align:center; font-size:15px;" >
       <br>
-      <a href="#">Volver a la página de inicio</a>
+      <a href="home">Volver a la página de inicio</a>
     </div>
     <div class="col">
 

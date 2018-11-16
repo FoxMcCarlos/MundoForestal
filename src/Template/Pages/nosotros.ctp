@@ -47,6 +47,10 @@ $this->layout = false;
 <body>
 
   <!-- Navigation -->
+  <?php
+    $this->layout = 'main';
+    ?>
+
 <style media="screen">
   #titulo{
     text-shadow: 4px 4px #33331a;
@@ -55,15 +59,15 @@ $this->layout = false;
 </style>
 
   <!-- Page Header -->
-<header  class="masthead" style="background-image: url('/img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+<header>
 
-    <div class="container">
+    <div class="container" align="center">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading" >
-            <h1 id="titulo">Quienes Somos:</h1>
-            <span class="subheading"></span>
-          </div>
+        <div class="col-lg-12 col-md-12 mb-12">
+
+            <h1 style="color:green; align:center;padding-top:5%">Quienes Somos:</h1>
+
+
         </div>
       </div>
     </div>
@@ -90,21 +94,32 @@ $this->layout = false;
 <br/>Utilizamos todos los medios disponibles para lograr llevar el programa a más y más personas cada día. Posteriormente se inició el Consultorio del Dr. Árbol, el cual es un servicio gratuito de asesoría en línea sobre todo lo relacionado al conocimiento, cuidado y manejo de las especies forestales. Por medio del mismo se ofrecen recomendaciones sobre las mejores especies a plantar en determinados sitios, dependiendo de las características del lugar y de los objetivos, así mismo se dan pautas sobre problemas de plagas y enfermedades que afectan a los árboles y en términos generales sobre el manejo y cuidado de los árboles.
 <br/>
 <br/>MundoForestal.com se concentra  en la continuidad del Programa de Educación Forestal por medio de la atención de consultas personales, telefónicas, por correo electrónico y facebook, asesorías y la generación de información sobre las distintas especies  forestales de Costa Rica, así como  de la alimentación del sitio web, el cual se ha constituido en una fuente de consulta de primer orden para los amantes de los árboles tanto dentro como fuera de Costa Rica.   </p></div>
-        <div class="col-lg-12 col-md-12 mb-12" ><h4 style="color:green; align:center;  font-style: bold;">Mision </h4></div>
-        <div align="justify"><p style="color:black; align:center;  font-style: italic;"> Utilizar todos los medios posibles para crear la conciencia social de que el conocimiento, conservación, reproducción, cultivo y aprovechamiento máximo de todas las especies de árboles, es un   asunto de enormes implicaciones del que dependen la estabilidad planetaria y el desarrollo y supervivencia de los seres humanos y de cientos de miles de especies.   </p></div>
-        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6"><h4 style="color:red;  font-style: none;">Nuestro Lema:</h4></div><br>
-        <div align="center"><h6 style="color:black; align:center;  font-style: italic;">  "No podemos cuidar algo si no lo conocemos..."</h6></div>
-        <div align="justify"><p style="color:black; align:center;  font-style: italic;">"Porque el más glorioso invento de la Humanidad, no es capaz de ofrecer el más simple de los beneficios que brinda un árbol..."  (Manuel Víquez) </p></div>
-        <div class"panel panel-info" align="justify">
+        <div class="col-lg-12 col-md-12 mb-12" align="center" >
+           <h4 style="color:green; align:center; font-style:bold;"> Misión </h4>
+           <p style="color:black; font-style: italic;"align="justify">Utilizar todos los medios posibles para crear la conciencia social de que el conocimiento, conservación, reproducción, cultivo y aprovechamiento máximo de todas las especies de árboles, es un   asunto de enormes implicaciones del que dependen la estabilidad planetaria y el desarrollo y supervivencia de los seres humanos y de cientos de miles de especies</p>
+        </div>
+        <div class="col-lg-12 col-md-12 mb-12" align="center" >
+           <h4 style="color:green; align:center; font-style:bold;"> Nuestro Lema </h4>
+           <p style="color:#00008B; font-style: italic;">"No podemos cuidar algo si no lo conocemos..."</p>
+           <p style="color:black; font-style: italic;">"Porque el más glorioso invento de la Humanidad, no es capaz de ofrecer el más simple de los beneficios que brinda un árbol..."  (Manuel Víquez)</p>
+        </div>
 
+        <div class="col-lg-12 col-md-12 mb-12">
+          <div class="container">
+            <h3 id="contacto"class="col-lg-12 col-md-12 mb-12" align="center" style="color:green;padding-top:5%; padding-bottom:5%">Contactenos:</h3>
+            <div align="center"><h5 style="color:black;  font-style: italic;">  La Uruca, San José, Costa Rica
+                  <br/>Tel.: (506)2296-5638
+                  <br/>mundoforestal@elmundoforestal.com
+                  <br/>MundoForestal.com S.A. </h5></div>
+            <div class="row">
 
   </div>
  </div>
-</div>
+
   <hr>
 
   <!-- Footer -->
-  <?php echo $this->render("../Commons/_navbar"); ?>
+
 
   <!-- Bootstrap core JavaScript -->
 <!--  <script src="webroot/js/jquery/jquery.min.js"></script>

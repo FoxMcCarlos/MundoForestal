@@ -193,13 +193,12 @@ class PagesController extends AppController
 
     }
     public function nosotros()
+  {
+    $this->set(compact('nosotros'));
+
+  }
+    public function mantenimiento()
     {
-      echo "nosotros";
-      exit();
-    }
-    public function contacto()
-    {
-      echo "contacto";
-      exit();
+      $this->set(compact('mantenimiento'));
     }
   }

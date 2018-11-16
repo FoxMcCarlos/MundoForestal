@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -10,15 +9,15 @@
     <div class="container" style="margin-top:8%; margin-bottom:10%;">
       <div class="row">
         <div class="col" style="text-align:center; font-size:150px; color:green;">
-          500
+          mant
         </div>
         </div>
       <div class="row">
         <div class="col">
 
         </div>
-        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6 " style="text-align:center; font-size:25px; ">
-          Ha ocurrido un error interno en el servidor
+        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6" style="text-align:center; font-size:25px; ">
+          La pagina que ha intentado ingresar se encuentra en mantenimiento
         </div>
         <div class="col ">
 
@@ -30,7 +29,7 @@
         </div>
         <div class="col-6" style="padding-top:5%; text-align:center; font-size:15px;" >
           <br>
-          <a href="home">Volver a la página de inicio</a>
+          <a href="#">Volver a la página de inicio</a>
         </div>
         <div class="col">
 
