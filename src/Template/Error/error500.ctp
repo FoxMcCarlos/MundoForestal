@@ -30,7 +30,7 @@
         </div>
         <div class="col-6" style="padding-top:5%; text-align:center; font-size:15px;" >
           <br>
-          <a href="home">Volver a la página de inicio</a>
+          <a href="/">Volver a la página de inicio</a>
         </div>
         <div class="col">
 

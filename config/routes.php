@@ -56,7 +56,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display']);
     $routes->connect('/buscarT', ['controller' => 'Pages', 'action' => 'buscarT']);
     $routes->connect('/buscar', ['controller' => 'Pages', 'action' => 'buscar']);
     $routes->connect('/especies', ['controller' => 'Pages', 'action' => 'especies', 'especies']);
@@ -64,6 +64,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/album/*', ['controller' => 'Pages', 'action' => 'album']);
     $routes->connect('/nosotros', ['controller' => 'Pages', 'action' => 'nosotros',"nosotros"]);
     $routes->connect('/contacto', ['controller' => 'Pages', 'action' => 'contacto',"contacto"]);
+    $routes->connect('/resources', ['controller' => 'Resources', 'action' => 'index']);
+    $routes->connect('/resources/add', ['controller' => 'Resources', 'action' => 'add']);
+    $routes->connect('/resources/edit/*', ['controller' => 'Resources', 'action' => 'edit']);
+
     /**
      * Connect catchall routes for all controllers.
      *

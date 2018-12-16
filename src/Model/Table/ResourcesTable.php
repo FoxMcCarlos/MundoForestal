@@ -33,7 +33,10 @@ class ResourcesTable extends Table
         $this->setTable('resources');
         $this->setDisplayField('IdResource');
         $this->setPrimaryKey('IdResource');
-        
+        $this->belongsTo('Contents')
+             ->setForeignKey('IdContent')
+             ->setJoinType('INNER');
+
 
     }
 

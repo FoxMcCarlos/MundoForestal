@@ -25,8 +25,8 @@ class ResourcesController extends AppController
      */
     public function index()
     {
-        $resources = $this->paginate($this->Resources);
-        $withRelations = $this->Resources->loadInto($resources, ['Contents']);
+        $resources = $this->paginate($this->Resources->find('all',  array('contain' =>  'Contents')));
+
         $this->set(compact('resources'));
         $this->set('_serialize', ['resources']);
     }
