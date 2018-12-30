@@ -6,7 +6,8 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+      <img src="/img/logoGreen.png" id="logo" >
+        <li class="heading" style="color:green;"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Contentalbum'), ['action' => 'add']) ?></li>
     </ul>
 </nav>

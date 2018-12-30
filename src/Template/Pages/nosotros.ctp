@@ -14,7 +14,7 @@
 
               <div style="white-space:nowrap; "   >
                     <span >
-                        <h1 style="text-shadow:grey">Quiénes Somos</h1> 
+                        <h1 style="text-shadow:grey">Quiénes Somos</h1>
 
                     </span>
               </div>
@@ -28,7 +28,13 @@
   <!-- Main Content -->
   <div class="container" align="center">
     <div class="row" align="justify">
-
+      <style media="screen">
+      #contacto
+      {
+        overflow-y: scroll; 
+        scroll-behavior: smooth;
+      }
+      </style>
       <div class="col-lg-12 col-md-12 mb-12">
         <div align="center">
           <h5 style="color:black; align:center; font-style: italic; padding-top:10%"> ¡Hola!  Somos Yamileth Sánchez Vargas y Manuel Víquez Carazo
@@ -58,7 +64,7 @@
 
         <div class="col-lg-12 col-md-12 mb-12">
           <div class="container">
-            <h3 id="contacto"class="col-lg-12 col-md-12 mb-12" align="center" style="color:green;padding-top:5%; padding-bottom:5%">Contactenos:</h3>
+            <h3 id="contacto" class="col-lg-12 col-md-12 mb-12" align="center" style="color:green;padding-top:5%; padding-bottom:5%">Contactenos:</h3>
             <div align="center"><h5 style="color:black;  font-style: italic;">  La Uruca, San José, Costa Rica
                   <br/>Tel.: (506)2296-5638
                   <br/>mundoforestal@elmundoforestal.com

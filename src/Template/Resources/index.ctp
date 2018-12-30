@@ -3,18 +3,20 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Resource[]|\Cake\Collection\CollectionInterface $resources
  */
+
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Resource'), ['action' => 'add']) ?></li>
+  <img src="/img/logoGreen.png" id="logo" >
+    <ul class="side-nav" >
+        <li class="heading" style="color:green;"><?= __('Actions') ?></li>
+        <li ><?= $this->Html->link(__('New Resource'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="resources index large-9 medium-8 columns content">
-    <h3><?= __('Resources') ?></h3>
+    <h3 ><?= __('Resources') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
-            <tr>
+            <tr >
                 <th scope="col"><?= $this->Paginator->sort('IdResource') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('IdContent') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Resource') ?></th>

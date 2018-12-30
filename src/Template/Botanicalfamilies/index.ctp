@@ -5,8 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <img src="/img/logoGreen.png" id="logo" >
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+        <li class="heading" style="color:green;"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Botanicalfamily'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
