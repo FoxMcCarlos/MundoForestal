@@ -102,7 +102,7 @@ class PagesController extends AppController
 
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
-            if (Configure::read('debug')) {
+            if (Configure::read('debug', 1)) {
                 throw $exception;
             }
             throw new NotFoundException();
@@ -154,7 +154,7 @@ class PagesController extends AppController
     public function buscarT($search = null)
     {
       $s = $_POST['search'];
-      $data = $this->Contents->find('all', array('conditions' => array('Contents.IdCategory' => 2, "AND" => array("Contents.Name LIKE" => "$s%"))));
+      $data = $this->Contents->find('all', array('conditions' => array('Contents.IdCategory' => 2, "AND" => array("Contents.Name LIKE" => "$s%"),'contain' => ['Resources'])));
       $this->set(compact('data'));
       $this->set('_serialize', ['data']);
       $this->RequestHandler->renderAs($this, 'json');
@@ -184,12 +184,13 @@ class PagesController extends AppController
     public function terminology()
     {
 
-
-        $contents = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2)))->order(['Name' => 'ASC']);
+        
+        $contents = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2), 'contain' => ['Resources']))->order(['Name' => 'ASC']);
         //array('order'=>array('FIELD(Name)asc')
 
         $this->set(compact('contents'));
         $this->set('_serialize', ['contents']);
+
 
     }
     public function nosotros()

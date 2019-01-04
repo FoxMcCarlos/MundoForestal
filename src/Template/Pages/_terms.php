@@ -18,12 +18,30 @@
         if ($letter !== $actual) {
 
           $letter = $actual;
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  alt='".$content->Name ."'></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -31,11 +49,27 @@
 
         }else {
           $first = $first + 1;
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -45,29 +79,65 @@
         if ($letter !== $actual) {
 
           $letter = $actual;
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
-          echo "/section";
+          echo "</ul>";
+          echo "</section>";
 
         }else {
           $first = $first + 1;
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
+          echo "</ul>";
           echo "</section>";
         }
       }else {
@@ -76,23 +146,57 @@
 
           $letter = $actual;
           echo "</section>";
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
 
         }else {
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
-          echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -109,12 +213,29 @@
 
           $letter = $actual;
 
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -122,11 +243,29 @@
 
         }else {
           $first = $first + 1;
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -136,29 +275,66 @@
         if ($letter !== $actual) {
 
           $letter = $actual;
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
-          echo "/section";
+          echo "</ul>";
+          echo "</section>";
 
         }else {
 
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
+          echo "</ul>";
           echo "</section>";
         }
       }else {
@@ -166,24 +342,60 @@
         if ($letter !== $actual) {
 
           $letter = $actual;
+          echo "</ul>";
           echo "</section>";
-          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+          echo "<ul>";
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
           echo "</li>";
 
         }else {
-          echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+          echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
           echo "</h4>";
-          echo "<h5><i> $content->Description </i></h5>";
+
+          echo "<div class='tBody'>";
+          if (empty($content->resources)) {
+            echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+          }else {
+            if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+            }else {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }
+
+
+          }
+          echo "<div class='tDesc'>";
+          echo $content->Description;
+          echo "</div>";
+          echo "</div>";
+
           echo "</div>";
           echo "</div>";
           echo "<hr width = 100%>";
@@ -197,12 +409,30 @@
           if ($letter !== $actual) {
 
             $letter = $actual;
-            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+            echo "<ul>";
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";
@@ -210,11 +440,29 @@
 
           }else {
             $first = $first + 1;
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";
@@ -224,29 +472,67 @@
           if ($letter !== $actual) {
 
 
-            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+            echo "<ul>";
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";
             echo "</li>";
-            echo "/section";
+            echo "</ul>";
+            echo "</section>";
 
           }else {
 
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";
             echo "</li>";
+            echo "</ul>";
             echo "</section>";
           }
         }else {
@@ -254,24 +540,62 @@
           if ($letter !== $actual) {
 
             $letter = $actual;
+            echo "</ul>";
             echo "</section>";
-            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'>".   $letter. "</h1>";
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<section id='l".$letter."'><h1 class='letter' id='l".$letter."'><img class='treeview negRot' src='img/treeview.png' />".   $letter. "</h1>";
+            echo "<ul>";
+
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";
             echo "</li>";
 
           }else {
-            echo "<li class='list-inline-item items' id='liveSearchLu'><div class='card'>
+            echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo $this->Html->link(__($content->Name), ['action' => 'detail', $content->Name]);
+            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
             echo "</h4>";
-            echo "<h5><i> $content->Description </i></h5>";
+            echo "<div class='tBody'>";
+            if (empty($content->resources)) {
+              echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+            }else {
+              if (file_exists( WWW_ROOT . "/".$content->resources[0]['Resource']."" )) {
+                  echo "<div class='tImg'><img class='zoomImg'  style='max-width:100%;max-height:100%; border-radius:2px;'src='/". $content->resources[0]['Resource']."' alt='".$content->Name ."'></div>";
+              }else {
+                echo "<div class='tImg'><img  class='zoomImg' style=' max-width:100%; max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  ></div>";
+              }
+
+
+            }
+            echo "<div class='tDesc'>";
+            echo $content->Description;
+            echo "</div>";
+            echo "</div>";
+
+
             echo "</div>";
             echo "</div>";
             echo "<hr width = 100%>";

@@ -57,10 +57,14 @@ $cakeDescription = 'Mundo Forestal';
     color: green;
 
   }
+  #content
+  {
+    margin-top: 40px;
+  }
 </style>
 
   <!-- Page Header -->
-  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'."); -webkit-filter: grayscale(50%);'>" ;?>
+  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'."); background-repeat: no-repeat; background-position-x:center; background size-y: 500px;'>" ;?>
 
     <div class="container">
       <div class="row">
@@ -78,7 +82,7 @@ $cakeDescription = 'Mundo Forestal';
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-12 col-md-12 mb-12">
+      <div id="content" class="col-lg-12 col-md-12 mb-12">
         <?php
             if ($content[0]['ScientificName'] != "" || $content[0]['ScientificName'] != null) {
               echo "<div><h4 style='color:green;  font-style: italic;''>Nombre científico:".' '.$content[0]['ScientificName']. "</h4></div>";
@@ -103,7 +107,7 @@ $cakeDescription = 'Mundo Forestal';
                   //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
                   //echo strpos($content->Description,$term->Name) + strlen($term->Name);
 
-                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/detalles/'.$term->Name.'">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
+                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/terminology#'.$term->Name.'" target="_blank">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
                 }
                 }
 
