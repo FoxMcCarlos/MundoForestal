@@ -7,7 +7,7 @@ searchBar.addEventListener('keyup',function(e){
 const term = e.target.value.toLowerCase();
 const terms = list.getElementsByTagName('li');
   Array.from(terms).forEach(function(obj){
-    //debugger;
+
     const title = obj.firstElementChild.firstElementChild.firstElementChild.textContent;
     const regexCase1 = /á/gm;
     const regexCase2 = /é/gm;
@@ -16,12 +16,12 @@ const terms = list.getElementsByTagName('li');
     const regexCase5 = /ú/gm;
     if (regexCase1.exec(title) !== null) {
 
-        if(title.replace(regexCase1, "a").toLowerCase().indexOf(term) != -1)
-        {
-          obj.style.display = 'block';
-        }else {
-          obj.style.display = 'none';
-        }
+      if(title.replace(regexCase1, "a").toLowerCase().indexOf(term) != -1)
+      {
+        obj.classList.add = 'block';
+      }else {
+        obj.style.display = 'none';
+      }
     }else if (regexCase2.exec(title) !== null) {
       if(title.replace(regexCase2, "e").toLowerCase().indexOf(term) != -1)
       {
@@ -70,9 +70,37 @@ const terms = list.getElementsByTagName('li');
 const sections = document.querySelectorAll('section');
 for (var i = 0; i < sections.length; i++) {
   sections[i].addEventListener('click',function(e){
-    $(this).toggle();
+
+
+    if (e.target.tagName === 'IMG' && e.target.className ===  'treeview negRot' || e.target.className ===  'treeview posRot') {
+      var element = $(this).find('img:first');
+      if ($(this).children('ul').is(':hidden') == true) {
+
+        if (element[0]["classList"].contains("posRot") == true) {
+            element[0]["classList"].remove("posRot");
+        }
+        element[0]["classList"].add("negRot");
+        $(this).children('ul').fadeToggle();
+
+
+      }else {
+
+        if (element[0]["classList"].contains("negRot") == true) {
+          element[0]["classList"].remove("negRot");
+        }
+        element[0]["classList"].add("posRot");
+        $(this).children('ul').fadeToggle();
+      }
+
+
+
+    }
+
+
     });
+
 	}
 
-console.log(sections);
+
+//console.log(sections);
 }

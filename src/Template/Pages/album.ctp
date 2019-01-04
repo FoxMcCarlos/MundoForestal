@@ -49,10 +49,21 @@ $cakeDescription = 'Mundo Forestal';
 
 <body>
 
+
+
   <!-- Navigation -->
 <?php echo $this->render("../Commons/_navbar"); ?>
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+<?php
+  if ($album[0]['Name'] === 'Árboles') {
+  echo "<header id='arboles' class='masthead'>";
+  }elseif ($album[0]['Name'] === 'Ornamentales') {
+  echo "<header id='ornamentales' class='masthead ornamentales'>";
+}elseif ($album[0]['Name'] === 'Medicinales') {
+  echo "<header id='medicinales' class='masthead medicinales'>";
+  }
+?>
+
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -190,11 +201,34 @@ $cakeDescription = 'Mundo Forestal';
 
       color: white !important;
 
+
+
+
 }
 
 
-.pagination a:hover:not(.active) {background-color: green; color: white !important;}
-
+.pagination a:hover:not(.active)
+{
+  background-color: green; color: white !important;
+}
+#arboles
+{
+  background-image: url('/img/Portadas/(Portada)_Album.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#ornamentales
+{
+   background-image: url('/img/Portadas/(Portada)_Ornamentales.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+#medicinales
+{
+  background-image: url('/img/Portadas/(Portada)_Medicinales.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 
 

@@ -37,6 +37,8 @@ $cakeDescription = 'Mundo Forestal';
     <?php
       echo $this->Html->css('bootstrap.min.css');
       echo $this->Html->css('clean-blog.css');
+      echo $this->Html->css('lightbox.css');
+
 
     ?>
     <!-- Bootstrap core CSS
@@ -52,12 +54,12 @@ $cakeDescription = 'Mundo Forestal';
 
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/tree.jpg'); -webkit-filter: grayscale(50%); ">
+  <header class="masthead" id="head" style="background-image: url('img/Portadas/(Portada)_Terminologia.jpg' ); background-size: 100% 80%; background-repeat: no-repeat; background-position-y: bottom;">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Terminologia</h1>
+            <h1></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -68,6 +70,7 @@ $cakeDescription = 'Mundo Forestal';
   <!-- Main Content -->
   <div class="container">
     <style media="screen">
+
         #show
         {
           position:absolute;
@@ -88,6 +91,16 @@ $cakeDescription = 'Mundo Forestal';
 
 
         }
+
+        .treeview
+        {
+          width: 2%;
+          height: 2%;
+          margin-bottom: 1%;
+          margin-right: 1%;
+        }
+
+
         #liveSearchLu
         {
           list-style: none;
@@ -101,7 +114,29 @@ $cakeDescription = 'Mundo Forestal';
 
 
         }
+        .visible
+        {
 
+          -moz-transition: 0.2s ease;
+          -webkit-transition: 0.2s ease;
+          -o-transition:  0.2s ease;
+          transition:  0.2s ease;
+        }
+
+        .negRot {
+          transform: rotate(-90deg);
+          -moz-transition: 0.2s ease;
+          -webkit-transition: 0.2s ease;
+          -o-transition:  0.2s ease;
+          transition:  0.2s ease;
+        }
+        .posRot {
+          transform: rotate(0deg);
+          -moz-transition:  0.2s ease;
+          -webkit-transition:  0.2s ease;
+          -o-transition:  0.2s ease;
+          transition:  0.2s ease;
+        }
 
         .result
         {
@@ -206,8 +241,112 @@ $cakeDescription = 'Mundo Forestal';
       {
         text-align: justify;
       }
+      .tBody
+      {
+        margin-left: 5%;
+      }
+      .dText
+      {
+
+      }
 
 
+      .tImg
+      {
+        width: 50%;
+        height: 50%;
+
+      }
+      .tDesc
+      {
+        margin-left: 42%;
+        width: 60%;
+        height: 50%;
+
+
+
+      }
+      .zoomImg
+      {
+        width: 80%;
+        height: 80%;
+        max-width:100%;
+        max-height:100%;
+        display:inline-block;
+        float:left;
+        padding-left:0.5%;
+        padding-right: 0.5%;
+        padding-bottom: 0.5%;
+        padding-top: 0.5%;
+        -webkit-transition: ease 0.5s;
+        transition: ease 0.5s;
+        background-color: green;
+
+
+      }
+      .zoomImg:hover
+      {
+        box-shadow: 0 0 2px 1px green;
+        cursor: zoom-in ;
+        -webkit-transition: ease 0.5s;
+        transition: ease 0.5s;
+      }
+
+@media only screen and (max-width:500px)
+{
+  .zoomImg
+  {
+    width: 80%;
+    height: 80%;
+    max-width:100%;
+    max-height:100%;
+    display:inline-block;
+    float:left;
+    padding-left:0.5%;
+    padding-right: 0.5%;
+    padding-bottom: 0.6%;
+    padding-top: 0.6%;
+    -webkit-transition: ease 0.5s;
+    transition: ease 0.5s;
+    background-color: green;
+
+
+  }
+  .card
+  {
+    border: none;
+    margin-left: -20px;
+  }
+  .tBody
+  {
+    margin-left: 0%;
+  }
+  .treeview
+  {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 1%;
+    margin-right: 1%;
+  }
+  .tImg
+  {
+    width: 100%;
+    height: 50%;
+    display: block;
+    margin-left: 25px;
+
+  }
+  .tDesc
+  {
+    margin-top: 200px;
+    margin-left: 0%;
+    width: 100%;
+    height: 50%;
+
+
+
+  }
+}
 
 
 
@@ -235,6 +374,11 @@ $cakeDescription = 'Mundo Forestal';
       <div class="col-lg-3 col-md-3 mb-3">
 
       </div>
+      <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
       <div class="col-lg-6 col-md-6 mb-6 col-xs-4" id="abc">
         <a href="#lA" class="btns">A</a return false> <a href="#lB" class="btns">B</a> <a href="#lC" class="btns">C</a> <a href="#lD" class="btns">D</a> <a href="#lE" class="btns">E</a>
         <a href="#lF" class="btns">F</a> <a href="#lG" class="btns">G</a> <a href="#lH" class="btns">H</a> <a href="#lI" class="btns">I</a> <a href="#lJ" class="btns">J</a>
@@ -282,10 +426,11 @@ $cakeDescription = 'Mundo Forestal';
   echo $this->Html->script('jquery-ui.js');
   echo $this->Html->script('popper.min.js');
   echo $this->Html->script('bootstrap.min.js');
-  echo $this->Html->script('searchByLetter.js');
   echo $this->Html->script('liveSearchT.js');
+  echo $this->Html->script('lightbox.js');
 
   ?>
+
   <!--<script src="webroot/js/clean-blog.min.js"></script>-->
 
 

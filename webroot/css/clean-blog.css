@@ -7,17 +7,14 @@
 
  @font-face {
    font-family: 'Shanti';
-   src: url('/font/Shanti-Regular.eot'); /* IE9 Compat Modes */
-   src: url('/font/Shanti-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/font/Shanti-Regular.woff') format('woff'), /* Modern Browsers */
-        url('/font/Shanti-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/font/Shanti-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+   src: url('/font/Shanti-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+
  }
 
 body {
 
   color: #333333;
-  font-family: 'Shanti', sans-serif; }
+  font-family: 'Shanti'; }
 
 p {
   line-height: 1.5;
