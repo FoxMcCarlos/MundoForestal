@@ -49,7 +49,7 @@
     </div>
     <div class="col-lg-6 col-md-6 col-s-3 col-xs-6" style="padding-top:5%; text-align:center; font-size:15px;" >
       <br>
-      <a href="home">Volver a la página de inicio</a>
+      <a href="/">Volver a la página de inicio</a>
     </div>
     <div class="col">
 
