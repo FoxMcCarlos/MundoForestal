@@ -78,6 +78,15 @@
 
         height: 175%;
       }
+      @media only screen and (max-width:500px)
+      {
+          div.card
+          {
+            margin-left: 10%;
+          }
+
+
+      }
       </style>
     <?php foreach ($albums as $album): ?>
         <div class="col-lg-4 col-md-6 mb-4">
