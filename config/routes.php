@@ -63,11 +63,11 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/detalles/*', ['controller' => 'Pages', 'action' => 'detail']);
     $routes->connect('/album/*', ['controller' => 'Pages', 'action' => 'album']);
     $routes->connect('/nosotros', ['controller' => 'Pages', 'action' => 'nosotros',"nosotros"]);
-    $routes->connect('/contacto', ['controller' => 'Pages', 'action' => 'contacto',"contacto"]);
+    $routes->connect('/mantenimiento', ['controller' => 'Pages', 'action' => 'mantenimiento',"mantenimiento"]);
     $routes->connect('/resources', ['controller' => 'Resources', 'action' => 'index']);
     $routes->connect('/resources/add', ['controller' => 'Resources', 'action' => 'add']);
     $routes->connect('/resources/edit/*', ['controller' => 'Resources', 'action' => 'edit']);
-
+  
     /**
      * Connect catchall routes for all controllers.
      *
@@ -84,6 +84,10 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+     $routes->connect('/edit/*', ['controller' => 'Resources', 'action' => 'edit']);
+     $routes->connect('/view/*', ['controller' => 'Resources', 'action' => 'view']);
+     $routes->connect('/add', ['controller' => 'Resources', 'action' => 'add']);
+     $routes->connect('/index', ['controller' => 'Resources', 'action' => 'index']);
     $routes->fallbacks(DashedRoute::class);
 });
 
