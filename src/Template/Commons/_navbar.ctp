@@ -22,7 +22,7 @@
           <a class="nav-link" href="mantenimiento">Consultorio del Dr.Arbol</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros#contacto>Contacto</a>
+          <a class="nav-link" href="nosotros#contacto">Contacto</a>
         </li>
       </ul>
     </div>
