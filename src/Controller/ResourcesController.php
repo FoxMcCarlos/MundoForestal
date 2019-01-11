@@ -58,7 +58,7 @@ class ResourcesController extends AppController
 
         $resource = $this->Resources->newEntity();
         if ($this->request->is('post')) {
-            $target_dir = "test/";
+            $target_dir = "../webroot/img/";
             $target_file = $target_dir.basename($_FILES["files"]["name"]);
             move_uploaded_file($_FILES["files"]["tmp_name"],$target_file);
             $resource = $this->Resources->patchEntity($resource, $this->request->getData());
@@ -90,7 +90,7 @@ class ResourcesController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $temp = $_FILES["files"]["tmp_name"];
-            $target_dir = "test/";
+            $target_dir = "../webroot/img/";
             $target_file = $target_dir.basename($_FILES["files"]["name"]);
  	          move_uploaded_file($temp,$target_file);
 

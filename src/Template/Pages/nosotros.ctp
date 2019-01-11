@@ -29,9 +29,9 @@
   <div class="container" align="center">
     <div class="row" align="justify">
       <style media="screen">
-      #contacto
+      *
       {
-        overflow-y: scroll; 
+
         scroll-behavior: smooth;
       }
       </style>

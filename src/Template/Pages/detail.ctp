@@ -70,7 +70,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" >
-            <h1 id="titulo"><?= $content[0]['Name'] ?></h1>
+            <h1 id="titulo"><?= mb_convert_case($content[0]['Name'], MB_CASE_TITLE, "UTF-8") ?></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -101,13 +101,11 @@ $cakeDescription = 'Mundo Forestal';
 
 
 
-              if ( strstr((string) $content[0]['Description'], $term->Name)) {
+              if ( stristr((string) $content[0]['Description'], $term->Name)) {
                 if ($content[0]['Name'] !== $term->Name) {
-                  //echo "Text found". ' '. strpos($content->Description,$term->Name);
-                  //echo substr ( $content->Description , strpos($content->Description,$term->Name) , strlen($term->Name));
-                  //echo strpos($content->Description,$term->Name) + strlen($term->Name);
 
-                  $content[0]['Description'] = str_replace($term->Name, '<a class="term" href="/terminology#'.$term->Name.'" target="_blank">'.$term->Name.'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
+
+                  $content[0]['Description'] = str_ireplace($term->Name, '<a class="term" href="/terminologia#'.$term->Name.'" target="_blank">'.mb_strtolower($term->Name).'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
                 }
                 }
 

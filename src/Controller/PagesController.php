@@ -184,11 +184,13 @@ class PagesController extends AppController
     public function terminology()
     {
 
-        
+
         $contents = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2), 'contain' => ['Resources']))->order(['Name' => 'ASC']);
+        $eval = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2), 'contain' => ['Resources']))->order(['Name' => 'ASC']);
         //array('order'=>array('FIELD(Name)asc')
 
         $this->set(compact('contents'));
+        $this->set(compact('eval'));
         $this->set('_serialize', ['contents']);
 
 

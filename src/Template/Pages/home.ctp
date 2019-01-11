@@ -12,7 +12,7 @@
 
 
 
-              <div style="white-space:nowrap; "   >
+              <div    >
                     <span >
                         <h2>Bienvenidos</h2> <br>
                             <span >
@@ -78,6 +78,15 @@
 
         height: 175%;
       }
+      @media only screen and (max-width:500px)
+      {
+          div.card
+          {
+            margin-left: 10%;
+          }
+
+
+      }
       </style>
     <?php foreach ($albums as $album): ?>
         <div class="col-lg-4 col-md-6 mb-4">
@@ -86,10 +95,16 @@
             if($album->IdAlbum == 1)
             {
                 if ($reso == null) {
-                    echo "No tengo imagen";
+                  echo "<img  style=' max-width:100%;
+                  max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
                 }else {
-                  echo "<img  style='max-width:100%;
-         max-height:100%; border-radius:2px;'src='img/tree.jpg' alt='test' >"; //.$reso[0]['Resource'].
+                  if (file_exists( WWW_ROOT . "/".$reso[0]->Resource."" )) {
+                    echo "<img  style='max-width:100%;
+                    max-height:100%; border-radius:2px;'src='".$reso[0]->Resource."' alt='test' >";
+                  }else {
+                    echo "<img  style=' max-width:100%;
+                    max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+                  }
                 }
 
 
@@ -98,10 +113,17 @@
             elseif ($album->IdAlbum==2)
             {
               if ($reso2 == null) {
-                  echo "No tengo imagen";
+                echo "<img  style=' max-width:100%;
+                max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
               }else {
-                echo "<img  style='max-width:100%;
-       max-height:100%; border-radius:2px;'src='img/tree.jpg' alt='test' >";//.$reso2[0]['Resource'].
+                if (file_exists( WWW_ROOT . "/".$reso2[0]->Resource."" )) {
+                  echo "<img  style='max-width:100%;
+                  max-height:100%; border-radius:2px;'src='".$reso2[0]->Resource."' alt='test' >";
+                }else {
+                  echo "<img  style=' max-width:100%;
+                  max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+                }
+
               }
 
 
@@ -110,10 +132,16 @@
             elseif($album->IdAlbum==3)
             {
               if ($reso3 == null) {
-                  echo "No tengo imagen";
+                echo "<img  style=' max-width:100%;
+                max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
               }else {
-                echo "<img  style='max-width:100%;
-       max-height:100%; border-radius:2px;'src='img/arbolito.jpg' alt='test' >";//.$reso3[0]['Resource'].
+                if (file_exists( WWW_ROOT . "/".$reso3[0]->Resource."" )) {
+                  echo "<img  style='max-width:100%;
+                  max-height:100%; border-radius:2px;'src='".$reso3[0]->Resource."' alt='test' >";
+                }else {
+                  echo "<img  style=' max-width:100%;
+                  max-height:100%; border-radius:2px;'src='/img/mfHolder.jpg'  >";
+                }
               }
 
 

@@ -63,7 +63,11 @@ $cakeDescription = 'Mundo Forestal';
           <a class="nav-link" href="/nosotros">Quiénes Somos</a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link" href="/terminology">Terminología</a>
+=======
+          <a class="nav-link" href="/terminologia">Terminología</a>
+>>>>>>> fa68d6e0dc4707ee095ce30bdd02c1c50eb3cd43
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/mantenimiento">Consultorio del Dr.Arbol</a>
