@@ -51,7 +51,7 @@ $cakeDescription = 'Mundo Forestal';
         <img src="/img/logoGreen.png" id="logo" >
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
+      Menú
       <i class="fa fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -60,16 +60,16 @@ $cakeDescription = 'Mundo Forestal';
           <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros">Quiénes Somos</a>
+          <a class="nav-link" href="/nosotros">Quiénes Somos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="terminology">Terminología</a>
+          <a class="nav-link" href="/terminology">Terminología</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mantenimiento">Consultorio del Dr.Arbol</a>
+          <a class="nav-link" href="/mantenimiento">Consultorio del Dr.Arbol</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros#contacto">Contacto</a>
+          <a class="nav-link" href="/nosotros#contacto">Contacto</a>
         </li>
       </ul>
     </div>
