@@ -13,16 +13,16 @@
           <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros">Quienes Somos</a>
+          <a class="nav-link" href="/nosotros">Quienes Somos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="terminology">terminología</a>
+          <a class="nav-link" href="/terminologia">terminología</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mantenimiento">Consultorio del Dr.Arbol</a>
+          <a class="nav-link" href="/mantenimiento">Consultorio del Dr.Arbol</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="nosotros#contacto">Contacto</a>
+          <a class="nav-link" href="/nosotros#contacto">Contacto</a>
         </li>
       </ul>
     </div>

@@ -16,7 +16,7 @@
     </ul>
 </nav>
 <div class="resources form large-9 medium-8 columns content">
-    <?= $this->Form->create($resource) ?>
+    <?= $this->Form->create($resource, ['enctype' => 'multipart/form-data']) ?>
     <fieldset>
         <legend><?= __('Edit Resource') ?></legend>
         <?php

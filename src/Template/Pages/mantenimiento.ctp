@@ -22,7 +22,7 @@
             <div class=" "style="text-align:center;">
               <h4 style="color: green; padding-top:15%;">La página que ha intentado ingresar se encuentra en mantenimiento</h4>
               <br>
-              <a href="/home" >Volver a la página de inicio</a>
+              <a href="/" >Volver a la página de inicio</a>
             </div>
           </div>
         </div>

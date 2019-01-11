@@ -9,6 +9,23 @@
   $first = 0;
   $last =  count($contents->toArray()) -1;
   foreach ($contents as $content):
+    foreach ($eval as $term) {
+
+      if($term->Name !== $content->Name)
+      {
+        $content->Description = str_ireplace($term->Name, '<a class="term" href="/terminologia#'.$term->Name.'">'.mb_strtolower($term->Name).'</a>', substr($content->Description, 0, strlen($content->Description)));
+
+      }
+
+      }
+
+      if (preg_match('/nota\b/m',  mb_strtolower($content->Description))) {
+
+        $content->Description = str_ireplace('nota.', '<br><p>Nota:</p>',substr($content->Description, 0, strlen($content->Description)));
+
+      }
+
+
 
 
     if (preg_match_all('/(\~)+/i',iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[0])) {
@@ -22,7 +39,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -51,7 +68,7 @@
           $first = $first + 1;
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -83,7 +100,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -114,7 +131,7 @@
           $first = $first + 1;
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
           echo "<div class='tBody'>";
           if (empty($content->resources)) {
@@ -150,7 +167,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -178,7 +195,7 @@
         }else {
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
 
           echo "<div class='tBody'>";
           if (empty($content->resources)) {
@@ -217,7 +234,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
           echo "<div class='tBody'>";
           if (empty($content->resources)) {
@@ -245,7 +262,7 @@
           $first = $first + 1;
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -279,7 +296,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -310,7 +327,7 @@
 
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -348,7 +365,7 @@
           echo "<ul>";
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -376,7 +393,7 @@
         }else {
           echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
           <div class='card-body'><h4 class='card-title'>";
-          echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+          echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
           echo "</h4>";
 
           echo "<div class='tBody'>";
@@ -413,7 +430,7 @@
             echo "<ul>";
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
 
             echo "<div class='tBody'>";
@@ -442,7 +459,7 @@
             $first = $first + 1;
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
 
             echo "<div class='tBody'>";
@@ -476,7 +493,7 @@
             echo "<ul>";
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
 
             echo "<div class='tBody'>";
@@ -507,7 +524,7 @@
 
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
 
             echo "<div class='tBody'>";
@@ -547,7 +564,7 @@
 
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
 
             echo "<div class='tBody'>";
@@ -576,7 +593,7 @@
           }else {
             echo "<li class='list-inline-item items ' id='liveSearchLu'><div class='card'>
             <div class='card-body'><h4 class='card-title'>";
-            echo "<p id='".$content->Name."'>" .$content->Name.  "</p>";
+            echo "<p id='".$content->Name."'>" .mb_convert_case($content->Name, MB_CASE_TITLE, "UTF-8").  "</p>";
             echo "</h4>";
             echo "<div class='tBody'>";
             if (empty($content->resources)) {
