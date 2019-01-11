@@ -12,7 +12,7 @@
 
 
 
-              <div style="white-space:nowrap; "   >
+              <div    >
                     <span >
                         <h2>Bienvenidos</h2> <br>
                             <span >
