@@ -60,7 +60,7 @@ $cakeDescription = 'Mundo Forestal';
   echo "<header id='arboles' class='masthead parallax'>";
   }elseif ($album[0]['Name'] === 'Ornamentales') {
   echo "<header id='ornamentales' class='masthead parallax ornamentales'>";
-}elseif ($album[0]['Name'] === 'Medicinales') {
+}elseif ($album[0]['Name'] === 'Aromáticas y medicinales') {
   echo "<header id='medicinales' class='masthead parallax medicinales'>";
   }
 ?>
