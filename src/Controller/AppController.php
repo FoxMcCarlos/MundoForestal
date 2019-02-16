@@ -37,12 +37,31 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize()
-    {
-        parent::initialize();
 
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+      public function initialize()
+      {
+          parent::initialize();
+          $this->loadComponent('RequestHandler');
+          $this->loadComponent('Flash');
+          $this->loadComponent('Auth', [
+              'authError'    => '¡Acceso restrigido!',
+              'loginRedirect' => [
+                  'controller' => 'Contents',
+                  'action' => 'index'
+              ],
+              'logoutRedirect' => [
+                  'controller' => 'Pages',
+                  'action' => 'display',
+                  'home'
+              ]
+          ]);
+      }
+
+      public function beforeFilter(Event $event)
+      {
+
+        $this->Auth->allow(['index', 'view', 'display']);
+      }
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -50,7 +69,10 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
-    }
+
+
+
+
 
 
 
@@ -67,7 +89,8 @@ class AppController extends Controller
         // Note: These defaults are just to get started quickly with development
         // and should not be used in production. You should instead set "_serialize"
         // in each action as required.
-    
+
+
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {

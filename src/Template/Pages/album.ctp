@@ -57,11 +57,11 @@ $cakeDescription = 'Mundo Forestal';
   <!-- Page Header -->
 <?php
   if ($album[0]['Name'] === 'Árboles') {
-  echo "<header id='arboles' class='masthead'>";
+  echo "<header id='arboles' class='masthead parallax'>";
   }elseif ($album[0]['Name'] === 'Ornamentales') {
-  echo "<header id='ornamentales' class='masthead ornamentales'>";
+  echo "<header id='ornamentales' class='masthead parallax ornamentales'>";
 }elseif ($album[0]['Name'] === 'Medicinales') {
-  echo "<header id='medicinales' class='masthead medicinales'>";
+  echo "<header id='medicinales' class='masthead parallax medicinales'>";
   }
 ?>
 
@@ -69,7 +69,7 @@ $cakeDescription = 'Mundo Forestal';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h2><?= $album[0]['Name'] ?></h2>
+            <h1><?= $album[0]['Name'] ?></h1>
             <span class="subheading"></span>
           </div>
         </div>

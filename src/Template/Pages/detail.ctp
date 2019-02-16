@@ -64,13 +64,13 @@ $cakeDescription = 'Mundo Forestal';
 </style>
 
   <!-- Page Header -->
-  <?php echo "<header class='masthead' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'."); background-repeat: no-repeat; background-position-x:center; background size-y: 500px;'>" ;?>
+  <?php echo "<header class='masthead parallax' style='background-image: url(".'"/'.$content[0]['resources'][0]['Resource'].'"'.");'>" ;?>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading" >
-            <h1 id="titulo"><?= mb_convert_case($content[0]['Name'], MB_CASE_TITLE, "UTF-8") ?></h1>
+            <h1 id="titulo"><?= $content[0]['Name'] ?></h1>
             <span class="subheading"></span>
           </div>
         </div>
@@ -104,8 +104,10 @@ $cakeDescription = 'Mundo Forestal';
               if ( stristr((string) $content[0]['Description'], $term->Name)) {
                 if ($content[0]['Name'] !== $term->Name) {
 
-
-                  $content[0]['Description'] = str_ireplace($term->Name, '<a class="term" href="/terminologia#'.$term->Name.'" target="_blank">'.mb_strtolower($term->Name).'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
+                  $patron= '/\s('. $term->Name .')+/i';
+                  $reemplazo= ' <a class="term" target="_blank" href="/terminologia#'.$term->Name.'">'.mb_strtolower($term->Name).'</a>';
+                  $content[0]['Description'] = preg_replace($patron, $reemplazo, $content[0]['Description']);
+                  //str_ireplace($term->Name, '<a class="term" href="/terminologia#'.$term->Name.'">'.mb_strtolower($term->Name).'</a>', substr($content[0]['Description'], 0, strlen($content[0]['Description'])));
                 }
                 }
 

@@ -5,9 +5,19 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
+
     <ul class="side-nav">
+        <img src="/img/logoGreen.png" id="logo" >
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Scientificname'), ['action' => 'add']) ?></li>
+        <li class="heading" style="color:green; fontsize:18px"><?= __('Other Actions') ?></li>
+        <li class="heading" style="color:	#483D8B;"><?= __('Go To:') ?></li>
+        <li><a class="nav-link" href="/Resources/index">Resources</a></li>
+        <li><a class="nav-link" href="/Contents/index">Contents</a></li>
+        <li><a class="nav-link" href="/Botanicalfamilies/index">Botanical Families</a></li>
+        <li><a class="nav-link" href="/Categories/index">Categories</a></li>
+        <li><a class="nav-link" href="/Contentalbums/index">Content album</a></li>
+        <li><a class="nav-link" href="/Albums/index">Albums</a></li>
     </ul>
 </nav>
 <div class="scientificnames index large-9 medium-8 columns content">

@@ -39,6 +39,7 @@ class PagesController extends AppController
     $this->loadModel('Resources');
     $this->loadModel('Contents');
     $this->loadComponent('RequestHandler');
+    $this->loadComponent('Auth');
     $data = null;
 
   }

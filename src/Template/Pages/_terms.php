@@ -9,20 +9,12 @@
   $first = 0;
   $last =  count($contents->toArray()) -1;
   foreach ($contents as $content):
-    foreach ($eval as $term) {
 
-      if($term->Name !== $content->Name)
-      {
-        $content->Description = str_ireplace($term->Name, '<a class="term" href="/terminologia#'.$term->Name.'">'.mb_strtolower($term->Name).'</a>', substr($content->Description, 0, strlen($content->Description)));
-
-      }
-
-      }
 
       if (preg_match('/nota\b/m',  mb_strtolower($content->Description))) {
 
         $content->Description = str_ireplace('nota.', '<br><p>Nota:</p>',substr($content->Description, 0, strlen($content->Description)));
-
+        
       }
 
 

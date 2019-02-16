@@ -15,7 +15,10 @@ body {
 
   color: #333333;
   font-family: 'Shanti'; }
-
+#separator
+{
+  margin-top: 10%;
+}
 p {
   line-height: 1.5;
   margin: 30px 0; }
@@ -78,7 +81,11 @@ img::selection {
 img::-moz-selection {
   color: white;
   background: transparent; }
+#separator
+{
+  width: 80%;
 
+}
 body {
   -webkit-tap-highlight-color: #0085A1; }
 
@@ -306,7 +313,7 @@ form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee; }
 
 footer {
-  padding: 50px 0 65px; }
+  padding: 10px 0 30px; }
   footer .list-inline {
     margin: 0;
     padding: 0; }
@@ -369,3 +376,15 @@ footer {
   color: white;
   border: 1px solid #0085A1;
   background-color: #0085A1; }
+
+.parallax
+{
+  background-attachment: fixed;
+  background-position-x:center;
+  background-position-y: top ;
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  width:100%;
+
+
+}

@@ -3,7 +3,7 @@
   ?>
 
 
-  <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
+  <header class="masthead parallax" style="background-image: url('img/arbolito.jpg'); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -74,7 +74,7 @@
   </div>
  </div>
 
-  <hr>
+
 
   <!-- Footer -->
 

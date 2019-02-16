@@ -56,6 +56,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
+    //$routes->connect('/login/*', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display']);
     $routes->connect('/buscarT', ['controller' => 'Pages', 'action' => 'buscarT']);
     $routes->connect('/buscar', ['controller' => 'Pages', 'action' => 'buscar']);

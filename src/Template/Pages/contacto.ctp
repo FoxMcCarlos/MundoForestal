@@ -54,7 +54,7 @@ $this->layout = false;
 </style>
 
   <!-- Page Header -->
-<header class='masthead' class="col-lg-12 col-md-12 mb-12" >
+<header class='masthead parallax' class="col-lg-12 col-md-12 mb-12" >
 
     <div class="container">
       <div class="row">

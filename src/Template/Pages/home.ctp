@@ -3,7 +3,7 @@
 ?>
   <!-- Navigation -->
 
-  <header class="masthead" style="background-image: url('img/arbolito.jpg'); ">
+  <header class="masthead parallax" style="background-image: url('img/arbolito.jpg'); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -12,11 +12,11 @@
 
 
 
-              <div    >
+              <div>
                     <span >
                         <h2>Bienvenidos</h2> <br>
                             <span >
-                                Desde Costa Rica, con mucho orgullo para el resto del mundo
+                                <h5>Desde Costa Rica, con mucho orgullo para el resto del mundo</h5>
                           </span>
                     </span>
               </div>
@@ -63,7 +63,7 @@
 
 
       div.card {
-        width: 80%;
+
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         margin-bottom: 55px;
@@ -78,12 +78,15 @@
 
         height: 175%;
       }
-      @media only screen and (max-width:500px)
+      @media only screen and (max-width:690px)
       {
           div.card
           {
-            margin-left: 10%;
+            margin-left: 2%;
+            margin-right: 0.5%;
           }
+
+
 
 
       }
@@ -168,7 +171,7 @@
 
     </div>
   </div>
-  <hr>
+
 </div>
 
 

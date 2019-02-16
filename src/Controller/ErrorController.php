@@ -13,7 +13,6 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
 use Cake\Event\Event;
 
 /**
@@ -28,8 +27,11 @@ class ErrorController extends AppController
      *
      * @return void
      */
+
     public function initialize()
     {
+        $this->loadComponent('Flash');
+        $this->loadComponent('Auth');
         $this->loadComponent('RequestHandler');
     }
 

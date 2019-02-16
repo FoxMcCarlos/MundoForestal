@@ -116,16 +116,14 @@
       color: green;
     }
     html {
-      scroll-behavior: smooth;
+
   }
 
   #termsC
   {
     overflow-y: scroll;
-    height:500px;
-
-
-    scroll-behavior: smooth;
+    height:750px;
+    margin-bottom: -100px;
 
   }
   #terms

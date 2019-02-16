@@ -14,11 +14,16 @@ const terms = list.getElementsByTagName('li');
     const regexCase3 = /í/gm;
     const regexCase4 = /ó/gm;
     const regexCase5 = /ú/gm;
+
+
+
+
+
     if (regexCase1.exec(title) !== null) {
 
       if(title.replace(regexCase1, "a").toLowerCase().indexOf(term) != -1)
       {
-        obj.classList.add = 'block';
+        obj.style.display = 'block';
       }else {
         obj.style.display = 'none';
       }
@@ -50,7 +55,8 @@ const terms = list.getElementsByTagName('li');
       }else {
         obj.style.display = 'none';
       }
-    }else {
+    }
+    else {
       if(title.toLowerCase().indexOf(term) != -1)
       {
         obj.style.display = 'block';

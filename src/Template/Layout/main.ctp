@@ -36,7 +36,6 @@ $cakeDescription = 'Mundo Forestal';
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.css" rel="stylesheet">
 
@@ -62,12 +61,21 @@ $cakeDescription = 'Mundo Forestal';
         <li class="nav-item">
           <a class="nav-link" href="/nosotros">Quiénes Somos</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" role="button" data-toggle="dropdown">Álbumes</a>
+          <ul  class="dropdown-menu" style="border:none; margin-left:20px;">
+          <?php foreach ($albums as $album){
+
+            echo "<li class='nav-link'><a>".$album->Name."</a></li>";
+
+          } ?>
+
+        </ul>
+        </li>
         <li class="nav-item">
-<<<<<<< HEAD
-          <a class="nav-link" href="/terminology">Terminología</a>
-=======
+
           <a class="nav-link" href="/terminologia">Terminología</a>
->>>>>>> fa68d6e0dc4707ee095ce30bdd02c1c50eb3cd43
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/mantenimiento">Consultorio del Dr.Arbol</a>
@@ -78,14 +86,16 @@ $cakeDescription = 'Mundo Forestal';
       </ul>
     </div>
   </div>
-</nav>
+  </nav>
+<style media="screen">
 
+</style>
 
     <?= $this->fetch('content') ?>
 
 <!-- Footer -->
-<footer>
-
+<footer id="footer">
+<hr id="separator">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">

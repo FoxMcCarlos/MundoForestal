@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Recurso no encontrado</title>
-    <link rel="stylesheet" href="../../../webroot/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/clean-blog.css">
-  </head>
-  <body>
-    <div class="container" style="margin-top:8%; margin-bottom:10%;">
-      <div class="row">
-        <div class="col" style="text-align:center; font-size:150px; color:green;">
-          500
-        </div>
-        </div>
-      <div class="row">
-        <div class="col">
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         2.2.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
+ */
+$this->layout = 'dev_error';
+$this->assign('title', 'Fatal Error');
+$this->assign('templateName', 'fatal_error.ctp');
+$this->start('subheading');
+?>
+    <strong>Error: </strong>
+    <?= h($error->getMessage()) ?>
+    <br/>
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6 " style="text-align:center; font-size:25px; ">
-          Ha ocurrido un error interno en el servidor
-        </div>
-        <div class="col ">
+    <strong>File</strong>
+    <?= h($error->getFile()) ?>
+    <br/>
+    <strong>Line: </strong>
+    <?= h($error->getLine()) ?>
+<?php $this->end() ?>
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-
-        </div>
-        <div class="col-6" style="padding-top:5%; text-align:center; font-size:15px;" >
-          <br>
-          <a href="/">Volver a la página de inicio</a>
-        </div>
-        <div class="col">
-
-        </div>
-      </div>
-    </div>
-    <script src="jquery.min.js"/>
-    <script src="popper.min.js"/>
-    <script src="bootstrap.min.js"/>
-  </body>
-
-</html>
+<?php
+$this->start('file');
+if (extension_loaded('xdebug')):
+    xdebug_print_function_stack();
+endif;
+$this->end();

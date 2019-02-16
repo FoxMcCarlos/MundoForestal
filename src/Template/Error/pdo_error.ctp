@@ -1,45 +1,63 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Recurso no encontrado</title>
-    <link rel="stylesheet" href="../../../webroot/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/clean-blog.css">
-  </head>
-  <body>
-    <div class="container" style="margin-top:8%; margin-bottom:10%;">
-      <div class="row">
-        <div class="col" style="text-align:center; font-size:150px; color:green;">
-          500
-        </div>
-        </div>
-      <div class="row">
-        <div class="col">
+Skip to content
+Why GitHub?
+Enterprise
+Explore
+Marketplace
+Pricing
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-s-3 col-xs-6" style="text-align:center; font-size:25px; ">
-          Ha ocurrido un error interno en el servidor
-        </div>
-        <div class="col ">
+Search
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
+Sign in
+Sign up
+659 7,771 3,391 cakephp/cakephp
+ Code  Issues 212  Pull requests 24  Projects 0  Wiki  Insights
+Join GitHub today
+GitHub is home to over 31 million developers working together to host and review code, manage projects, and build software together.
 
-        </div>
-        <div class="col-6" style="padding-top:5%; text-align:center; font-size:15px;" >
-          <br>
-          <a href="#">Volver a la página de inicio</a>
-        </div>
-        <div class="col">
+cakephp/src/Template/Error/pdo_error.ctp
+a158d43  on 15 Nov 2017
+@markstory markstory Fix failing deprecated method use in ExceptionRenderer tests.
+@ADmad @ravage84 @markstory @lorenzo @dereuromark @bcrowe
 
-        </div>
-      </div>
-    </div>
-    <script src="jquery.min.js"/>
-    <script src="popper.min.js"/>
-    <script src="bootstrap.min.js"/>
-  </body>
+45 lines (40 sloc)  1.41 KB
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         0.10.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
+ */
+use Cake\Error\Debugger;
+$this->setLayout('dev_error');
+$this->assign('title', 'Database Error');
+$this->assign('templateName', 'pdo_error.ctp');
+$this->start('subheading');
+?>
+    <strong>Error: </strong>
+    <?= h($message); ?>
+<?php $this->end() ?>
 
-</html>
+<?php $this->start('file') ?>
+<p class="notice">
+    If you are using SQL keywords as table column names, you can enable identifier
+    quoting for your database connection in config/app.php.
+</p>
+<?php if (!empty($error->queryString)) : ?>
+    <p class="notice">
+        <strong>SQL Query: </strong>
+    </p>
+    <pre><?= h($error->queryString); ?></pre>
+<?php endif; ?>
+<?php if (!empty($error->params)) : ?>
+        <strong>SQL Query Params: </strong>
+        <pre><?= h(Debugger::dump($error->params)); ?></pre>
+<?php endif; ?>
+<?= $this->element('auto_table_warning'); ?>
+<?php $this->end() ?>

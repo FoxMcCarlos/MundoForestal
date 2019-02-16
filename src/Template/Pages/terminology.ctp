@@ -54,7 +54,7 @@ $cakeDescription = 'Mundo Forestal';
 
 
   <!-- Page Header -->
-  <header class="masthead" id="head" style="background-image: url('img/Portadas/(Portada)_Terminologia.jpg' ); background-size: 100% 80%; background-repeat: no-repeat; background-position-y: bottom;">
+  <header class="masthead parallax" id="head" style="background-image: url('img/Portadas/(Portada)_Terminologia.jpg' ); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -129,7 +129,7 @@ $cakeDescription = 'Mundo Forestal';
 
         </div>
         </div>
-  <hr>
+ <hr id="separator">
 
   <!-- Footer -->
   <?php echo $this->render("../Commons/_navbar"); ?>

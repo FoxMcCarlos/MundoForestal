@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 
 
 /**
@@ -19,7 +19,16 @@ class ContentsController extends AppController
     $this->loadComponent('Flash');
     $this->loadModel('Categories');
     $this->loadModel('Botanicalfamilies');
+    $this->loadComponent('Auth');
   }
+  public function beforeFilter(Event $event)
+   {
+       parent::beforeFilter($event);
+       // Allow users to register and logout.
+       // You should not add the "login" action to allow list. Doing so would
+       // cause problems with normal functioning of AuthComponent.
+       $this->Auth->deny(['add','index','edit','view','delete']);
+   }
 
     /**
      * Index method
