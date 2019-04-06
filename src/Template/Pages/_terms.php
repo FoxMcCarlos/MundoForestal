@@ -14,7 +14,7 @@
       if (preg_match('/nota\b/m',  mb_strtolower($content->Description))) {
 
         $content->Description = str_ireplace('nota.', '<br><p>Nota:</p>',substr($content->Description, 0, strlen($content->Description)));
-        
+
       }
 
 
@@ -214,8 +214,9 @@
       }
 
       //preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0)
-    }elseif (preg_match_all('/(\')+/i',iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[0])) {
-      $actual = strtoupper(iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[1]);
+    }elseif (!g_match_all('[[:ascii:]]',iconv('utf-8','ASCII//IGNORE//TRANSLIT',$content->Name)[0])) {
+      setlocale(LC_CTYPE, 'es_MX');
+      $actual = strtoupper(normalizer_normalize($content->Name[1]));
       if ($first == 0) {
         $first = $first + 1;
         if ($letter !== $actual) {

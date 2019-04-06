@@ -73,25 +73,3 @@
 
   </div>
  </div>
-
-
-
-  <!-- Footer -->
-
-
-  <!-- Bootstrap core JavaScript -->
-<!--  <script src="webroot/js/jquery/jquery.min.js"></script>
-  <script src="webroot/js/popper/popper.min.js"></script>
-  <script src="webroot/js/bootstrap/js/bootstrap.min.js"></script> -->
-
-  <!-- Custom scripts for this template -->
-  <?php
-  echo $this->Html->script('jquery.min.js');
-  echo $this->Html->script('popper.min.js');
-  echo $this->Html->script('bootstrap.min.js');
-
-  ?>
-  <!--<script src="webroot/js/clean-blog.min.js"></script>-->
-
-</body>
-</html>

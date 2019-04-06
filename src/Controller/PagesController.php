@@ -124,6 +124,10 @@ class PagesController extends AppController
     public function album($name = null)
     {
 
+      $albums = $this->Albums->find('all');
+      $this->set('albums',$albums);
+      $this->set('_serialize', ['albums']);
+
       $name = str_replace("%20"," ",$name);
       $album = $this->Albums->find('all', array('conditions' => array('Albums.Name' => $name)))->toArray();
       $id = $album[0]['IdAlbum'];
@@ -145,7 +149,7 @@ class PagesController extends AppController
       $s = $_POST['search'];
       $session = $this->request->session();
       $album = $session->read('album');
-      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array( "Contents.Name LIKE" => "$s%")),'contain' => ['Contents', 'Contents' => 'Resources']));
+      $data= $this->Contentalbums->find('all', array('conditions' => array('Contentalbums.IdAlbum' => $album, "AND" => array("OR" => array("Contents.Name LIKE" => "$s%", "Contents.Name LIKE" => "%$s%"))),'contain' => ['Contents', 'Contents' => 'Resources']));
       //$data->select(['Contents.idContent','Contents.Name','Contentalbums.Contents.Resources'])->contain(['Contents' => 'Resources']);
       $this->set(compact('data'));
       $this->set('_serialize', ['data']);
@@ -171,6 +175,9 @@ class PagesController extends AppController
      */
     public function detail($name = null)
     {
+       $albums = $this->Albums->find('all');
+       $this->set('albums',$albums);
+       $this->set('_serialize', ['albums']);
         $name = str_replace("%20"," ",$name);
 
         $content = $this->Contents->find('all', array('conditions' => array('Contents.Name' => $name),'contain' => ['Botanicalfamilies',  'Resources']))->toArray();
@@ -184,8 +191,9 @@ class PagesController extends AppController
 
     public function terminology()
     {
-
-
+        $albums = $this->Albums->find('all');
+        $this->set('albums',$albums);
+        $this->set('_serialize', ['albums']);
         $contents = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2), 'contain' => ['Resources']))->order(['Name' => 'ASC']);
         $eval = $this->Contents->find('all',array('conditions' => array('Contents.IdCategory' => 2), 'contain' => ['Resources']))->order(['Name' => 'ASC']);
         //array('order'=>array('FIELD(Name)asc')
@@ -198,7 +206,12 @@ class PagesController extends AppController
     }
     public function nosotros()
   {
-    $this->set(compact('nosotros'));
+
+      $albums = $this->Albums->find('all');
+      $this->set('albums',$albums);
+      $this->set('_serialize', ['albums']);
+
+       $this->set(compact('nosotros'));
 
   }
     public function mantenimiento()
