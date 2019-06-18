@@ -68,6 +68,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/resources', ['controller' => 'Resources', 'action' => 'index']);
     $routes->connect('/resources/add', ['controller' => 'Resources', 'action' => 'add']);
     $routes->connect('/resources/edit/*', ['controller' => 'Resources', 'action' => 'edit']);
+    $routes->connect('/covers', ['controller' => 'Covers', 'action' => 'index']);
 
     /**
      * Connect catchall routes for all controllers.

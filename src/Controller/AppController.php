@@ -43,7 +43,7 @@ class AppController extends Controller
           parent::initialize();
           $this->loadComponent('RequestHandler');
           $this->loadComponent('Flash');
-          $this->loadComponent('Auth', [
+        /*  $this->loadComponent('Auth', [
               'authError'    => '¡Acceso restrigido!',
               'loginRedirect' => [
                   'controller' => 'Contents',
@@ -54,13 +54,13 @@ class AppController extends Controller
                   'action' => 'display',
                   'home'
               ]
-          ]);
+          ]);*/
       }
 
       public function beforeFilter(Event $event)
       {
 
-        $this->Auth->allow(['index', 'view', 'display']);
+        //$this->Auth->allow(['index', 'view', 'display']);
       }
 
         /*

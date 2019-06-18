@@ -16,20 +16,20 @@ class ResourcesController extends AppController
   {
     $this->loadComponent('Flash');
     $this->loadModel('Contents');
-    $this->loadComponent('Auth');
+    //$this->loadComponent('Auth');
   }
 
 
-  public function beforeFilter(Event $event)
-   {
-       parent::beforeFilter($event);
+  //public function beforeFilter(Event $event)
+//   {
+  //     parent::beforeFilter($event);
        // Allow users to register and logout.
        // You should not add the "login" action to allow list. Doing so would
        // cause problems with normal functioning of AuthComponent.
 
-       $this->Auth->deny(['add','index','edit','view','delete']);
+      // $this->Auth->deny(['add','index','edit','view','delete']);
 
-   }
+//   }
 
     /**
      * Index method
